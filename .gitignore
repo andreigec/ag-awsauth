@@ -1,0 +1,10 @@
+node_modules/
+/packages/ui/.next
+build/
+dist/
+/packages/common/src/api/
+
+cdk.out/
+tsconfig.tsbuildinfo
+
+/packages/api/log.txt
