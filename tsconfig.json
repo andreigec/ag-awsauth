@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strict": true,
+    "checkJs": false,
+    "sourceMap": false,
+    "allowJs": true,
+    "isolatedModules": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "unknownProperties": "error"
+        }
+      }
+    ],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "dom.iterable"
+    ],
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "dist"
+  },
+  "exclude": [
+    "node_modules",
+  ],
+  "include": [
+    "src"
+  ],
+}
