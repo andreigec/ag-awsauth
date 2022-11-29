@@ -1,6 +1,7 @@
 import { STS } from '@aws-sdk/client-sts';
-import { error, info } from 'ag-common/dist/common/helpers/log';
+import { error, info, warn } from 'ag-common/dist/common/helpers/log';
 import { IAwsCreds, SearchMetadata } from '../types';
+import { getAssumedRole } from './sso';
 export async function validateCredentials(
   credentials: IAwsCreds,
 ): Promise<{ accountId: string; principalArn: string } | undefined> {
@@ -21,8 +22,12 @@ export async function validateCredentials(
       return { accountId: stub.Account, principalArn: stub.Arn };
     }
   } catch (e) {
+    const es = (e as Error).toString();
+    if (es.includes('expired')) {
+      warn('creds have expired');
+      return undefined;
+    }
     throw new Error('saml error:' + e);
-    //
   }
 }
 
@@ -58,6 +63,7 @@ export async function getApplicationCreds(p: {
   }
   return {
     ...p.originCreds,
+    region: p.targetRegion,
     accessKeyId: ret.Credentials.AccessKeyId,
     secretAccessKey: ret.Credentials.SecretAccessKey,
     sessionToken: ret.Credentials.SessionToken,
@@ -69,13 +75,18 @@ export async function directStsAssume(p: {
   targetRegion: string;
   metadata: SearchMetadata;
 }) {
+  const role = await getAssumedRole({
+    accessToken: p.credentials.accessToken,
+    accountId: p.metadata.AccountId,
+  });
+
   const sts = new STS({
     credentials: p.credentials,
     region: p.targetRegion,
   });
 
   const ar = await sts.assumeRole({
-    RoleArn: `arn:aws:iam::${p.metadata.AccountId}:role/awsSaml`,
+    RoleArn: `arn:aws:iam::${role.accountId}:role/${role.roleName}`,
     RoleSessionName: 'awsauth',
   });
 
@@ -92,6 +103,7 @@ export async function directStsAssume(p: {
   }
   return {
     ...p.credentials,
+    region: p.targetRegion,
     accessKeyId: ar.Credentials.AccessKeyId,
     secretAccessKey: ar.Credentials.SecretAccessKey,
     sessionToken: ar.Credentials.SessionToken,

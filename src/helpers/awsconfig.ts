@@ -4,7 +4,7 @@ import { loadSharedConfigFiles } from '@aws-sdk/shared-ini-file-loader';
 import ini from 'ini';
 import fs from 'fs';
 import { IAwsCreds, IAwsCredsRaw } from '../types';
-import { warn } from 'ag-common/dist/common/helpers/log';
+import { info } from 'ag-common/dist/common/helpers/log';
 
 export const getAwsCredentials = async () => {
   const config = await loadSharedConfigFiles();
@@ -29,7 +29,7 @@ export const updateAwsCredentials = async (p: IAwsCreds) => {
   creds.default.aws_sso_authn = p.ssoAuthn;
 
   const newcreds = ini.stringify(creds);
-  warn(`saving updated default creds to .aws/credentials`);
+  info(`saving updated default creds to .aws/credentials`);
   const credspath = getCredentialsFilepath();
   fs.writeFileSync(credspath, newcreds);
 };

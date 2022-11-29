@@ -74,6 +74,6 @@ export const goToPage = async (url: string) => {
     });
     return page;
   } catch (e) {
-    console.log('e=', e);
+    throw new Error('browser error:' + JSON.stringify(e, null, 2));
   }
 };

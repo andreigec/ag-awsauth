@@ -1,55 +1,76 @@
 /* eslint-disable padding-line-between-statements */
-import { appInstances, getAccessToken, getSamlAssertion } from './helpers/oidc';
-import { identityCenterRegion, ssoStartUrl } from './config';
+import { identityCenterRegion, ssoStartUrl, targetRegion } from './config';
 import {
+  appInstances,
   getOIDCCredentialsFromAccessToken,
+  getSamlAssertion,
   tryExistingCredentials,
 } from './helpers/sso';
 import { updateAwsCredentials } from './helpers/awsconfig';
-import { warn } from 'ag-common/dist/common/helpers/log';
-import { chooseAppInstance } from './helpers/input';
-import { getApplicationCreds } from './helpers/sts';
+import { info, SetLogLevel, warn } from 'ag-common/dist/common/helpers/log';
+import { chooseAppInstance, readArguments } from './helpers/input';
+import { directStsAssume, getApplicationCreds } from './helpers/sts';
+import { requestMFA } from './helpers/oidc';
+import { IApplicationArgs } from './types';
+import fs from 'fs';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const beep = require('node-beep');
+export async function main(args: IApplicationArgs) {
+  beep(1);
+  SetLogLevel(args.verbose ? 'DEBUG' : 'WARN');
 
-export async function run() {
   let credentials = await tryExistingCredentials();
 
   if (!credentials?.accessToken || !credentials?.ssoAuthn) {
-    warn('no creds, get access token through manual sign in');
-    const ac = await getAccessToken({
+    info('no creds, get access token through manual sign in');
+    credentials = await requestMFA({
       identityCenterRegion,
       ssoStartUrl,
     });
-    credentials = {
-      ...ac,
-      accessKeyId: '',
-      region: identityCenterRegion,
-      secretAccessKey: '',
-      sessionToken: '',
-    };
   }
-  warn('get oidc creds');
+  info('get oidc creds');
   credentials = await getOIDCCredentialsFromAccessToken(credentials);
   //
 
-  warn('save aws creds to file');
+  info('save aws creds to file');
   await updateAwsCredentials(credentials);
 
-  warn('get app instances and display');
+  info('get app instances and display');
   const instances = await appInstances(credentials);
-  const instance = await chooseAppInstance(instances);
+  const instance = await chooseAppInstance(instances, args);
+
+  let debugRole = '';
 
   if (instance.searchMetadata) {
-    warn('account is native aws, directly  connecting');
+    info('account is native aws, directly  connecting');
+    credentials = await directStsAssume({
+      credentials,
+      targetRegion,
+      metadata: instance.searchMetadata,
+    });
+    debugRole = instance.searchMetadata.AccountId;
   } else {
-    warn('account is external app, getting saml');
+    info('account is external app, getting saml');
     const samlDetails = await getSamlAssertion(credentials, instance);
 
     credentials = await getApplicationCreds({
       ...samlDetails,
       originCreds: credentials,
-      targetRegion: 'ap-southeast-2',
+      targetRegion,
     });
+    debugRole = samlDetails.roleArn;
   }
 
   await updateAwsCredentials(credentials);
+  warn(`successfully authed into ${debugRole}`);
+}
+export async function run() {
+  try {
+    const args = await readArguments();
+    await main(args);
+    beep(1);
+  } catch (e) {
+    beep(2);
+    fs.writeFileSync('log.txt', 'error:' + (e as Error).toString());
+  }
 }

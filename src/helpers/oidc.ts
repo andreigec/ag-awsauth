@@ -6,82 +6,20 @@ import {
 } from '@aws-sdk/client-sso-oidc';
 import { warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
-import { fromBase64 } from 'ag-common/dist/common/helpers/string';
-import fetch from 'node-fetch';
 import { identityCenterRegion } from '../config';
-import {
-  IAppInstance,
-  IAppInstanceDetails,
-  IAppInstances,
-  IAwsCreds,
-  ISamlAssertion,
-} from '../types';
+import { IAwsCreds } from '../types';
 import { closeBrowser, goToPage } from './browser';
 
-export async function appInstances(p: { ssoAuthn: string }) {
-  const ai = (await (
-    await fetch(
-      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstances`,
-      { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
-    )
-  ).json()) as IAppInstances;
-
-  if (!ai?.result) {
-    throw new Error('appinstance error' + JSON.stringify(ai, null, 2));
-  }
-
-  return ai.result;
-}
-
-export async function getSamlAssertion(
-  p: IAwsCreds,
-  instance: IAppInstance,
-): Promise<{ samlAssertion: string; providerArn: string; roleArn: string }> {
-  //get saml assertion path
-
-  const det = (await (
-    await fetch(
-      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstance/${instance.id}/profiles`,
-      { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
-    )
-  ).json()) as IAppInstanceDetails;
-
-  const asserturl = det?.result?.[0]?.url;
-  if (!asserturl) {
-    throw new Error('assertion url cant be found');
-  }
-
-  const assertion = (await (
-    await fetch(asserturl, {
-      headers: { 'x-amz-sso_bearer_token': p.ssoAuthn },
-    })
-  ).json()) as ISamlAssertion;
-
-  //get accid
-  //<saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">arn:aws:iam::595367634560:saml-provider/aws,arn:aws:iam::595367634560:role/awsSaml</saml2:AttributeValue>
-  const decoded = fromBase64(assertion.encodedResponse);
-  const res = new RegExp(
-    /<saml2:AttributeValue xmlns:xsi="http:\/\/www.w3.org\/2001\/XMLSchema-instance" xsi:type="xsd:string">(arn.*?)</gim,
-  ).exec(decoded);
-
-  if (!res?.[1]) {
-    throw new Error('bad saml');
-  }
-
-  const [providerArn, roleArn] = res[1].split(',');
-
-  return { samlAssertion: assertion.encodedResponse, providerArn, roleArn };
-}
-
-export async function getAccessToken(p: {
+export async function requestMFA(p: {
   identityCenterRegion: string;
   ssoStartUrl: string;
-}): Promise<{ accessToken: string; ssoAuthn: string }> {
+}): Promise<IAwsCreds> {
   const sso_oidc = new SSOOIDCClient({ region: p.identityCenterRegion });
   const rcc = await sso_oidc.send(
     new RegisterClientCommand({ clientName: 'andrei', clientType: 'public' }),
   );
 
+  warn('please approve MFA on opened browser');
   const sda = await sso_oidc.send(
     new StartDeviceAuthorizationCommand({
       clientId: rcc.clientId,
@@ -146,5 +84,13 @@ export async function getAccessToken(p: {
       await sleep(5000);
     }
   } while (!accessToken);
-  return { accessToken, ssoAuthn: ssoAuthn as string };
+
+  return {
+    accessToken,
+    ssoAuthn: ssoAuthn as string,
+    region: identityCenterRegion,
+    accessKeyId: '',
+    secretAccessKey: '',
+    sessionToken: '',
+  };
 }

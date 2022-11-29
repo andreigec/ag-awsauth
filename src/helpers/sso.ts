@@ -4,12 +4,18 @@ import {
   GetRoleCredentialsCommand,
   SSOClient,
 } from '@aws-sdk/client-sso';
-import { info } from 'ag-common/dist/common/helpers/log';
+import { fromBase64 } from 'ag-common';
 import { identityCenterRegion } from '../config';
-import { IAwsCreds } from '../types';
+import {
+  IAppInstance,
+  IAppInstanceDetails,
+  IAppInstances,
+  IAwsCreds,
+  ISamlAssertion,
+} from '../types';
 import { getAwsCredentials } from './awsconfig';
 import { validateCredentials } from './sts';
-
+import fetch from 'node-fetch';
 export const tryExistingCredentials = async (): Promise<
   IAwsCreds | undefined
 > => {
@@ -32,20 +38,23 @@ export const tryExistingCredentials = async (): Promise<
     return credentials;
   }
 
-  info(`test cached credentials NOT valid`);
   return undefined;
 };
 
-export const getOIDCCredentialsFromAccessToken = async (p: {
+export const getAssumedRole = async (p: {
   accessToken: string;
-  ssoAuthn: string;
-}): Promise<IAwsCreds> => {
+  accountId?: string;
+}): Promise<{ accountId: string; roleName: string }> => {
   const sso = new SSOClient({ region: identityCenterRegion });
-  const accounts = await sso.send(
-    new ListAccountsCommand({ accessToken: p.accessToken }),
-  );
+  let accountId = p.accountId;
+  if (!accountId) {
+    const accounts = await sso.send(
+      new ListAccountsCommand({ accessToken: p.accessToken }),
+    );
 
-  const accountId = accounts.accountList?.[0]?.accountId;
+    accountId = accounts.accountList?.[0]?.accountId;
+  }
+
   if (!accountId) {
     throw new Error('no account id');
   }
@@ -74,6 +83,16 @@ export const getOIDCCredentialsFromAccessToken = async (p: {
   }
 
   const role = roles[0];
+
+  return role;
+};
+
+export const getOIDCCredentialsFromAccessToken = async (p: {
+  accessToken: string;
+  ssoAuthn: string;
+}): Promise<IAwsCreds> => {
+  const sso = new SSOClient({ region: identityCenterRegion });
+  const role = await getAssumedRole({ accessToken: p.accessToken });
   const ssoResp = await sso.send(
     new GetRoleCredentialsCommand({
       ...role,
@@ -99,3 +118,54 @@ export const getOIDCCredentialsFromAccessToken = async (p: {
     region: identityCenterRegion,
   };
 };
+
+export async function appInstances(p: { ssoAuthn: string }) {
+  const ai = (await (
+    await fetch(
+      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstances`,
+      { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
+    )
+  ).json()) as IAppInstances;
+
+  if (!ai?.result) {
+    throw new Error('appinstance error' + JSON.stringify(ai, null, 2));
+  }
+
+  return ai.result;
+}
+
+export async function getSamlAssertion(
+  p: IAwsCreds,
+  instance: IAppInstance,
+): Promise<{ samlAssertion: string; providerArn: string; roleArn: string }> {
+  const det = (await (
+    await fetch(
+      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstance/${instance.id}/profiles`,
+      { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
+    )
+  ).json()) as IAppInstanceDetails;
+
+  const asserturl = det?.result?.[0]?.url;
+  if (!asserturl) {
+    throw new Error('assertion url cant be found');
+  }
+
+  const assertion = (await (
+    await fetch(asserturl, {
+      headers: { 'x-amz-sso_bearer_token': p.ssoAuthn },
+    })
+  ).json()) as ISamlAssertion;
+
+  const decoded = fromBase64(assertion.encodedResponse);
+  const res = new RegExp(
+    /<saml2:AttributeValue xmlns:xsi="http:\/\/www.w3.org\/2001\/XMLSchema-instance" xsi:type="xsd:string">(arn.*?)</gim,
+  ).exec(decoded);
+
+  if (!res?.[1]) {
+    throw new Error('bad saml');
+  }
+
+  const [providerArn, roleArn] = res[1].split(',');
+
+  return { samlAssertion: assertion.encodedResponse, providerArn, roleArn };
+}

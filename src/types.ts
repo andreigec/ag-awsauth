@@ -57,3 +57,7 @@ export interface ISamlAssertion {
   //relayState: any;
   prettyPrintedXml: string;
 }
+export interface IApplicationArgs {
+  applicationfilter?: string;
+  verbose: boolean;
+}
