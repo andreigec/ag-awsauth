@@ -19,14 +19,18 @@ export const getAwsCredentials = async () => {
   return ret;
 };
 
-export const updateAwsCredentials = async (p: IAwsCreds) => {
+export const updateAwsCredentials = async (p: IAwsCreds | undefined) => {
   const creds = await getAwsCredentials();
-  creds.default.region = p.region;
-  creds.default.aws_access_key_id = p.accessKeyId;
-  creds.default.aws_secret_access_key = p.secretAccessKey;
-  creds.default.aws_session_token = p.sessionToken;
-  creds.default.aws_access_token = p.accessToken;
-  creds.default.aws_sso_authn = p.ssoAuthn;
+  if (!p) {
+    creds.default = {} as any;
+  } else {
+    creds.default.region = p.region;
+    creds.default.aws_access_key_id = p.accessKeyId;
+    creds.default.aws_secret_access_key = p.secretAccessKey;
+    creds.default.aws_session_token = p.sessionToken;
+    creds.default.aws_access_token = p.accessToken;
+    creds.default.aws_sso_authn = p.ssoAuthn;
+  }
 
   const newcreds = ini.stringify(creds);
   info(`saving updated default creds to .aws/credentials`);

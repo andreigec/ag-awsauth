@@ -1,5 +1,10 @@
 /* eslint-disable padding-line-between-statements */
-import { identityCenterRegion, ssoStartUrl, targetRegion } from './config';
+import {
+  identityCenterRegion,
+  logPath,
+  ssoStartUrl,
+  targetRegion,
+} from './config';
 import {
   appInstances,
   getOIDCCredentialsFromAccessToken,
@@ -7,7 +12,12 @@ import {
   tryExistingCredentials,
 } from './helpers/sso';
 import { updateAwsCredentials } from './helpers/awsconfig';
-import { info, SetLogLevel, warn } from 'ag-common/dist/common/helpers/log';
+import {
+  info,
+  SetLogLevel,
+  SetLogShim,
+  warn,
+} from 'ag-common/dist/common/helpers/log';
 import { chooseAppInstance, readArguments } from './helpers/input';
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
 import { requestMFA } from './helpers/oidc';
@@ -16,8 +26,17 @@ import fs from 'fs';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const beep = require('node-beep');
 export async function main(args: IApplicationArgs) {
-  beep(1);
   SetLogLevel(args.verbose ? 'DEBUG' : 'WARN');
+  SetLogShim((...a1) =>
+    fs.appendFileSync(logPath, JSON.stringify(a1, null, 2)),
+  );
+
+  if (args.wipe) {
+    info('wiping args');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await updateAwsCredentials(undefined);
+    return;
+  }
 
   let credentials = await tryExistingCredentials();
 
@@ -71,6 +90,6 @@ export async function run() {
     beep(1);
   } catch (e) {
     beep(2);
-    fs.writeFileSync('log.txt', 'error:' + (e as Error).toString());
+    fs.appendFileSync(logPath, 'error:' + (e as Error).toString());
   }
 }

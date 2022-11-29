@@ -36,7 +36,9 @@ export async function chooseAppInstance(
 }
 
 export async function readArguments(): Promise<IApplicationArgs> {
-  const { applicationfilter, verbose } = await yargs(hideBin(process.argv))
+  const { applicationfilter, verbose, wipe } = await yargs(
+    hideBin(process.argv),
+  )
     .help('h')
     .alias('h', 'help')
     .option('applicationfilter', {
@@ -46,7 +48,10 @@ export async function readArguments(): Promise<IApplicationArgs> {
     })
     .boolean('verbose')
     .default('verbose', false)
+    .boolean('wipe')
+    .alias('w', 'wipe')
+    .default('wipe', false)
     .parse();
 
-  return { applicationfilter, verbose };
+  return { applicationfilter, verbose, wipe };
 }

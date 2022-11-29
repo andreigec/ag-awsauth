@@ -60,4 +60,5 @@ export interface ISamlAssertion {
 export interface IApplicationArgs {
   applicationfilter?: string;
   verbose: boolean;
+  wipe: boolean;
 }

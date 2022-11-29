@@ -1,5 +1,6 @@
 import { STS } from '@aws-sdk/client-sts';
 import { error, info, warn } from 'ag-common/dist/common/helpers/log';
+import { stsDurationSeconds } from '../config';
 import { IAwsCreds, SearchMetadata } from '../types';
 import { getAssumedRole } from './sso';
 export async function validateCredentials(
@@ -47,6 +48,7 @@ export async function getApplicationCreds(p: {
     PrincipalArn: p.providerArn,
     RoleArn: p.roleArn,
     SAMLAssertion: p.samlAssertion,
+    DurationSeconds: stsDurationSeconds,
   });
 
   if ((ret.$metadata.httpStatusCode ?? 500) >= 400) {
@@ -88,6 +90,7 @@ export async function directStsAssume(p: {
   const ar = await sts.assumeRole({
     RoleArn: `arn:aws:iam::${role.accountId}:role/${role.roleName}`,
     RoleSessionName: 'awsauth',
+    DurationSeconds: stsDurationSeconds,
   });
 
   if ((ar.$metadata.httpStatusCode ?? 500) >= 400) {
