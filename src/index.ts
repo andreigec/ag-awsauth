@@ -27,9 +27,11 @@ import fs from 'fs';
 const beep = require('node-beep');
 export async function main(args: IApplicationArgs) {
   SetLogLevel(args.verbose ? 'DEBUG' : 'WARN');
-  SetLogShim((...a1) =>
-    fs.appendFileSync(logPath, JSON.stringify(a1, null, 2)),
-  );
+  SetLogShim((...a1) => {
+    // eslint-disable-next-line no-console
+    console.log(...a1);
+    fs.appendFileSync(logPath, JSON.stringify(a1, null, 2));
+  });
 
   if (args.wipe) {
     info('wiping args');
@@ -90,6 +92,8 @@ export async function run() {
     beep(1);
   } catch (e) {
     beep(2);
-    fs.appendFileSync(logPath, 'error:' + (e as Error).toString());
+    if (e?.toString) {
+      fs.appendFileSync(logPath, 'error:' + (e as Error).toString());
+    }
   }
 }

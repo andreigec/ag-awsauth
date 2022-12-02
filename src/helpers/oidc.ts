@@ -8,18 +8,22 @@ import { warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
 import { identityCenterRegion } from '../config';
 import { IAwsCreds } from '../types';
-import { closeBrowser, goToPage } from './browser';
-
+import { getMFA } from './browser';
+import { enterCreds } from './input';
 export async function requestMFA(p: {
   identityCenterRegion: string;
   ssoStartUrl: string;
 }): Promise<IAwsCreds> {
   const sso_oidc = new SSOOIDCClient({ region: p.identityCenterRegion });
+  warn('starting MFA flow');
+  const creds = enterCreds();
   const rcc = await sso_oidc.send(
-    new RegisterClientCommand({ clientName: 'andrei', clientType: 'public' }),
+    new RegisterClientCommand({
+      clientName: creds.username,
+      clientType: 'public',
+    }),
   );
 
-  warn('please approve MFA on opened browser');
   const sda = await sso_oidc.send(
     new StartDeviceAuthorizationCommand({
       clientId: rcc.clientId,
@@ -32,14 +36,16 @@ export async function requestMFA(p: {
     throw new Error('no verif url');
   }
 
-  //go to browser site for auth
-  const page = await goToPage(sda.verificationUriComplete);
+  const { ssoAuthn } = await getMFA({
+    verificationUriComplete: sda.verificationUriComplete,
+    creds,
+  });
+
   let accessToken: string | undefined;
-  let ssoAuthn: string | undefined;
   //keep trying to receive auth until user clicks, or timeout
   let trycount = 0;
   do {
-    if (trycount > 10) {
+    if (trycount > 3) {
       throw new Error('too many fails');
     }
 
@@ -57,21 +63,8 @@ export async function requestMFA(p: {
       );
 
       accessToken = ctc.accessToken;
-      const cookies = await page?.cookies();
-      ssoAuthn = cookies?.find((c) => c.name === 'x-amz-sso_authn')?.value;
       if (!accessToken) {
         throw new Error('no access token');
-      }
-
-      if (!ssoAuthn) {
-        throw new Error('no aws authn');
-      }
-
-      try {
-        await page?.close();
-        await closeBrowser();
-      } catch (e) {
-        //
       }
     } catch (e) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -87,7 +80,7 @@ export async function requestMFA(p: {
 
   return {
     accessToken,
-    ssoAuthn: ssoAuthn as string,
+    ssoAuthn,
     region: identityCenterRegion,
     accessKeyId: '',
     secretAccessKey: '',

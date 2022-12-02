@@ -4,7 +4,10 @@ import { info } from 'ag-common/dist/common/helpers/log';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { containsInsensitive } from 'ag-common/dist/common/helpers/string';
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 const valueRenderer = (a: IAppInstance) => `${a.name} [${a.id}]`;
+
 export async function chooseAppInstance(
   ai: IAppInstance[],
   args: IApplicationArgs,
@@ -54,4 +57,15 @@ export async function readArguments(): Promise<IApplicationArgs> {
     .parse();
 
   return { applicationfilter, verbose, wipe };
+}
+
+export function enterCreds() {
+  const username = prompt('Enter username:');
+  const password = prompt('Enter password:');
+
+  return { username, password };
+}
+
+export function enterMFA() {
+  return { mfa: prompt('Enter MFA code:') };
 }

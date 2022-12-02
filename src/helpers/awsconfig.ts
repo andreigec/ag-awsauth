@@ -22,6 +22,7 @@ export const getAwsCredentials = async () => {
 export const updateAwsCredentials = async (p: IAwsCreds | undefined) => {
   const creds = await getAwsCredentials();
   if (!p) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     creds.default = {} as any;
   } else {
     creds.default.region = p.region;
