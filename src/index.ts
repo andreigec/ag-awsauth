@@ -48,9 +48,10 @@ export async function main(args: IApplicationArgs) {
       identityCenterRegion,
       ssoStartUrl,
     });
+    info('get oidc creds');
+    credentials = await getOIDCCredentialsFromAccessToken(credentials);
   }
-  info('get oidc creds');
-  credentials = await getOIDCCredentialsFromAccessToken(credentials);
+
   //
 
   info('save aws creds to file');

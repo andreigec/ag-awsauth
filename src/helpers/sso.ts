@@ -4,7 +4,8 @@ import {
   GetRoleCredentialsCommand,
   SSOClient,
 } from '@aws-sdk/client-sso';
-import { fromBase64 } from 'ag-common';
+import { fromBase64 } from 'ag-common/dist/common/helpers/string';
+import { info } from 'ag-common/dist/common/helpers/log';
 import { identityCenterRegion } from '../config';
 import {
   IAppInstance,
@@ -16,30 +17,6 @@ import {
 import { getAwsCredentials } from './awsconfig';
 import { validateCredentials } from './sts';
 import fetch from 'node-fetch';
-export const tryExistingCredentials = async (): Promise<
-  IAwsCreds | undefined
-> => {
-  const credraw = await getAwsCredentials();
-  if (!credraw.default.aws_access_token) {
-    return undefined;
-  }
-
-  const credentials: IAwsCreds = {
-    accessKeyId: credraw.default.aws_access_key_id,
-    secretAccessKey: credraw.default.aws_secret_access_key,
-    sessionToken: credraw.default.aws_session_token,
-    accessToken: credraw.default.aws_access_token,
-    ssoAuthn: credraw.default.aws_sso_authn,
-    region: identityCenterRegion,
-  };
-
-  const v = await validateCredentials(credentials);
-  if (v) {
-    return credentials;
-  }
-
-  return undefined;
-};
 
 export const getAssumedRole = async (p: {
   accessToken: string;
@@ -169,3 +146,49 @@ export async function getSamlAssertion(
 
   return { samlAssertion: assertion.encodedResponse, providerArn, roleArn };
 }
+
+export const tryExistingCredentials = async (): Promise<
+  IAwsCreds | undefined
+> => {
+  const credraw = await getAwsCredentials();
+  if (!credraw.default.aws_access_token) {
+    return undefined;
+  }
+
+  let credentials: IAwsCreds = {
+    accessKeyId: credraw.default.aws_access_key_id,
+    secretAccessKey: credraw.default.aws_secret_access_key,
+    sessionToken: credraw.default.aws_session_token,
+    accessToken: credraw.default.aws_access_token,
+    ssoAuthn: credraw.default.aws_sso_authn,
+    region: identityCenterRegion,
+  };
+
+  const v = await validateCredentials(credentials);
+  if (v) {
+    return credentials;
+  }
+
+  if (credraw.default.aws_access_token && credraw.default.aws_sso_authn) {
+    try {
+      info('trying oidc refresh');
+      credentials = await getOIDCCredentialsFromAccessToken({
+        accessToken: credraw.default.aws_access_token,
+        ssoAuthn: credraw.default.aws_sso_authn,
+      });
+      return credentials;
+    } catch (e) {
+      //
+      info('access token or sso expired, need to wipe');
+    }
+  }
+
+  return {
+    accessToken: '',
+    ssoAuthn: '',
+    region: identityCenterRegion,
+    accessKeyId: '',
+    secretAccessKey: '',
+    sessionToken: '',
+  };
+};

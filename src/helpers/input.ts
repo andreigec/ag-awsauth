@@ -4,8 +4,7 @@ import { info } from 'ag-common/dist/common/helpers/log';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { containsInsensitive } from 'ag-common/dist/common/helpers/string';
-import promptSync from 'prompt-sync';
-const prompt = promptSync();
+import prompt from 'readline-sync';
 const valueRenderer = (a: IAppInstance) => `${a.name} [${a.id}]`;
 
 export async function chooseAppInstance(
@@ -50,6 +49,7 @@ export async function readArguments(): Promise<IApplicationArgs> {
       description: 'Will select account that matches passed in string',
     })
     .boolean('verbose')
+    .alias('v', 'verbose')
     .default('verbose', false)
     .boolean('wipe')
     .alias('w', 'wipe')
@@ -60,12 +60,14 @@ export async function readArguments(): Promise<IApplicationArgs> {
 }
 
 export function enterCreds() {
-  const username = prompt('Enter username:');
-  const password = prompt('Enter password:');
+  const username = prompt.question('Enter username:');
+  const password = prompt.question('Enter password:', {
+    hideEchoBack: true,
+  });
 
   return { username, password };
 }
 
 export function enterMFA() {
-  return { mfa: prompt('Enter MFA code:') };
+  return { mfa: prompt.question('Enter MFA code:', { min: 6, max: 6 }) };
 }
