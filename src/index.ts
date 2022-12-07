@@ -26,7 +26,7 @@ import fs from 'fs';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const beep = require('node-beep');
 export async function main(args: IApplicationArgs) {
-  SetLogLevel(args.verbose ? 'DEBUG' : 'WARN');
+  SetLogLevel(args.verbose ? 'INFO' : 'WARN');
   SetLogShim((...a1) => {
     // eslint-disable-next-line no-console
     console.log(...a1);

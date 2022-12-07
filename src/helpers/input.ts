@@ -50,7 +50,7 @@ export async function readArguments(): Promise<IApplicationArgs> {
     })
     .boolean('verbose')
     .alias('v', 'verbose')
-    .default('verbose', false)
+    .default('verbose', true)
     .boolean('wipe')
     .alias('w', 'wipe')
     .default('wipe', false)

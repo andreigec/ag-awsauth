@@ -179,7 +179,7 @@ export const tryExistingCredentials = async (): Promise<
       return credentials;
     } catch (e) {
       //
-      info('access token or sso expired, need to wipe');
+      info('access token or sso expired, need to wipe', e);
     }
   }
 
