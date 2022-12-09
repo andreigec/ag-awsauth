@@ -1,8 +1,10 @@
 import { STS } from '@aws-sdk/client-sts';
 import { error, info, warn } from 'ag-common/dist/common/helpers/log';
+
 import { stsDurationSeconds } from '../config';
 import { IAwsCreds, SearchMetadata } from '../types';
 import { getAssumedRole } from './sso';
+
 export async function validateCredentials(
   credentials: IAwsCreds,
 ): Promise<{ accountId: string; principalArn: string } | undefined> {

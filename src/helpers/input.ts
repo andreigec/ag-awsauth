@@ -1,10 +1,12 @@
-import { IAppInstance, IApplicationArgs } from '../types';
-import cliSelect from 'cli-select';
 import { info } from 'ag-common/dist/common/helpers/log';
+import { containsInsensitive } from 'ag-common/dist/common/helpers/string';
+import cliSelect from 'cli-select';
+import prompt from 'readline-sync';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { containsInsensitive } from 'ag-common/dist/common/helpers/string';
-import prompt from 'readline-sync';
+
+import { IAppInstance, IApplicationArgs } from '../types';
+
 const valueRenderer = (a: IAppInstance) => `${a.name} [${a.id}]`;
 
 export async function chooseAppInstance(

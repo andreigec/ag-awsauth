@@ -1,3 +1,6 @@
+import chromium from '@sparticuz/chrome-aws-lambda';
+import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
+import { sleep } from 'ag-common/dist/common/helpers/sleep';
 import {
   Browser,
   BrowserConnectOptions,
@@ -5,9 +8,7 @@ import {
   LaunchOptions,
   PuppeteerNode,
 } from 'puppeteer';
-import chromium from '@sparticuz/chrome-aws-lambda';
-import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
-import { sleep } from 'ag-common/dist/common/helpers/sleep';
+
 import { enterMFA } from './input';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

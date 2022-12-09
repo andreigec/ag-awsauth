@@ -1,30 +1,32 @@
 /* eslint-disable padding-line-between-statements */
 import {
+  info,
+  SetLogLevel,
+  SetLogShim,
+  warn,
+} from 'ag-common/dist/common/helpers/log';
+import fs from 'fs';
+
+import {
   identityCenterRegion,
   logPath,
   ssoStartUrl,
   targetRegion,
 } from './config';
+import { updateAwsCredentials } from './helpers/awsconfig';
+import { chooseAppInstance, readArguments } from './helpers/input';
+import { requestMFA } from './helpers/oidc';
 import {
   appInstances,
   getOIDCCredentialsFromAccessToken,
   getSamlAssertion,
   tryExistingCredentials,
 } from './helpers/sso';
-import { updateAwsCredentials } from './helpers/awsconfig';
-import {
-  info,
-  SetLogLevel,
-  SetLogShim,
-  warn,
-} from 'ag-common/dist/common/helpers/log';
-import { chooseAppInstance, readArguments } from './helpers/input';
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
-import { requestMFA } from './helpers/oidc';
 import { IApplicationArgs } from './types';
-import fs from 'fs';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const beep = require('node-beep');
+
 export async function main(args: IApplicationArgs) {
   SetLogLevel(args.verbose ? 'INFO' : 'WARN');
   SetLogShim((...a1) => {

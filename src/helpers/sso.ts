@@ -1,11 +1,13 @@
 import {
-  ListAccountsCommand,
-  ListAccountRolesCommand,
   GetRoleCredentialsCommand,
+  ListAccountRolesCommand,
+  ListAccountsCommand,
   SSOClient,
 } from '@aws-sdk/client-sso';
-import { fromBase64 } from 'ag-common/dist/common/helpers/string';
 import { info } from 'ag-common/dist/common/helpers/log';
+import { fromBase64 } from 'ag-common/dist/common/helpers/string';
+import fetch from 'node-fetch';
+
 import { identityCenterRegion } from '../config';
 import {
   IAppInstance,
@@ -16,7 +18,6 @@ import {
 } from '../types';
 import { getAwsCredentials } from './awsconfig';
 import { validateCredentials } from './sts';
-import fetch from 'node-fetch';
 
 export const getAssumedRole = async (p: {
   accessToken: string;

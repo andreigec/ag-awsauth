@@ -1,15 +1,17 @@
 import {
-  SSOOIDCClient,
-  RegisterClientCommand,
-  StartDeviceAuthorizationCommand,
   CreateTokenCommand,
+  RegisterClientCommand,
+  SSOOIDCClient,
+  StartDeviceAuthorizationCommand,
 } from '@aws-sdk/client-sso-oidc';
 import { warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
+
 import { identityCenterRegion } from '../config';
 import { IAwsCreds } from '../types';
 import { getMFA } from './browser';
 import { enterCreds } from './input';
+
 export async function requestMFA(p: {
   identityCenterRegion: string;
   ssoStartUrl: string;
