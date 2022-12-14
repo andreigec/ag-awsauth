@@ -28,9 +28,9 @@ export async function validateCredentials(
     const es = (e as Error).toString();
     if (es.includes('expired')) {
       warn('creds have expired');
-      return undefined;
     }
-    throw new Error('saml error:' + e);
+    warn('other saml error:' + es);
+    return undefined;
   }
 }
 
