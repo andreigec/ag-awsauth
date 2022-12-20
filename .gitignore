@@ -4,7 +4,6 @@ build/
 dist/
 /packages/common/src/api/
 
-cdk.out/
 tsconfig.tsbuildinfo
 
 /packages/api/log.txt

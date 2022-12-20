@@ -1,7 +1,7 @@
 import { info } from 'ag-common/dist/common/helpers/log';
 import { containsInsensitive } from 'ag-common/dist/common/helpers/string';
 import cliSelect from 'cli-select';
-import prompt from 'readline-sync';
+import { question } from 'readline-sync';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -62,8 +62,8 @@ export async function readArguments(): Promise<IApplicationArgs> {
 }
 
 export function enterCreds() {
-  const username = prompt.question('Enter username:');
-  const password = prompt.question('Enter password:', {
+  const username = question('Enter username:');
+  const password = question('Enter password:', {
     hideEchoBack: true,
   });
 
@@ -71,5 +71,11 @@ export function enterCreds() {
 }
 
 export function enterMFA() {
-  return { mfa: prompt.question('Enter MFA code:', { min: 6, max: 6 }) };
+  return {
+    mfa: question('Enter MFA code:', {
+      min: 6,
+      max: 6,
+      hideEchoBack: true,
+    }),
+  };
 }

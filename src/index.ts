@@ -1,5 +1,6 @@
 /* eslint-disable padding-line-between-statements */
 import {
+  error,
   info,
   SetLogLevel,
   SetLogShim,
@@ -94,6 +95,7 @@ export async function run() {
     await main(args);
     beep(1);
   } catch (e) {
+    error('error:' + e);
     beep(2);
     if (e?.toString) {
       fs.appendFileSync(logPath, 'error:' + (e as Error).toString());

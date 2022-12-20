@@ -1,7 +1,7 @@
 import { STS } from '@aws-sdk/client-sts';
 import { error, info, warn } from 'ag-common/dist/common/helpers/log';
 
-import { stsDurationSeconds } from '../config';
+import { nativeStsDurationSeconds, stsDurationSeconds } from '../config';
 import { IAwsCreds, SearchMetadata } from '../types';
 import { getAssumedRole } from './sso';
 
@@ -92,7 +92,7 @@ export async function directStsAssume(p: {
   const ar = await sts.assumeRole({
     RoleArn: `arn:aws:iam::${role.accountId}:role/${role.roleName}`,
     RoleSessionName: 'awsauth',
-    DurationSeconds: stsDurationSeconds,
+    DurationSeconds: nativeStsDurationSeconds,
   });
 
   if ((ar.$metadata.httpStatusCode ?? 500) >= 400) {

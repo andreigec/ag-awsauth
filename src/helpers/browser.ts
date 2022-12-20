@@ -1,4 +1,3 @@
-import chromium from '@sparticuz/chrome-aws-lambda';
 import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
 import {
@@ -33,8 +32,6 @@ export const launchBrowser = async () => {
     BrowserLaunchArgumentOptions &
     BrowserConnectOptions = {
     defaultViewport: { height: 1000, width: 500 },
-    args: chromium.args,
-    executablePath: await chromium.executablePath,
     headless: true, //chromium.headless,
     ignoreHTTPSErrors: true,
     devtools: false,
@@ -51,9 +48,7 @@ export const launchBrowser = async () => {
   opt.args.push('--disable-dev-shm-usage');
   await closeBrowser();
   debug('launch browser, opt=', opt);
-  browser = (await (puppeteer ?? chromium.puppeteer).launch(
-    opt,
-  )) as unknown as Browser;
+  browser = (await puppeteer.launch(opt)) as unknown as Browser;
 
   debug('browser created');
 };

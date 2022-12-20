@@ -13,7 +13,6 @@
 			"packages/ui/.cache":true,
 			"packages/ui/.next":true,
 			"packages/infra/build":true,
-			"packages/infra/cdk.out":true,
 			"**/.git": true, 
 			"**/.DS_Store": true, 
 			"**/node_modules": true,
