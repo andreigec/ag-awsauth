@@ -1,17 +1,14 @@
 import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
-import {
+import puppeteer, {
   Browser,
   BrowserConnectOptions,
   BrowserLaunchArgumentOptions,
   LaunchOptions,
-  PuppeteerNode,
 } from 'puppeteer';
 
 import { enterMFA } from './input';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const puppeteer: PuppeteerNode = undefined as any;
 let browser: Browser | undefined;
 
 export const closeBrowser = async () => {
@@ -72,7 +69,9 @@ export const goToPage = async (url: string) => {
     });
     return page;
   } catch (e) {
-    throw new Error('browser error:' + JSON.stringify(e, null, 2));
+    const em = 'browser error:' + (e as Error).toString();
+    error(em);
+    throw new Error(em);
   }
 };
 
@@ -81,7 +80,7 @@ export async function getMFA(p: {
   creds: { username: string; password: string };
 }) {
   //go to browser site for auth
-
+  info('start mfa');
   const page = await goToPage(p.verificationUriComplete);
   info('username block');
   await page.waitForSelector('#username-input');
