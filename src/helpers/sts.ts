@@ -3,7 +3,7 @@ import { error, info, warn } from 'ag-common/dist/common/helpers/log';
 
 import { nativeStsDurationSeconds, stsDurationSeconds } from '../config';
 import { IAwsCreds, SearchMetadata } from '../types';
-import { getAssumedRole } from './sso';
+import { appInstances, getAssumedRole } from './sso';
 
 export async function validateCredentials(
   credentials: IAwsCreds,
@@ -15,6 +15,7 @@ export async function validateCredentials(
 
   try {
     const stub = await sts.getCallerIdentity({});
+    await appInstances(credentials);
 
     if (
       (stub?.$metadata?.httpStatusCode ?? 500) < 400 &&

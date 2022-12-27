@@ -1,9 +1,10 @@
 import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
-import puppeteer, {
+import {
   Browser,
   BrowserConnectOptions,
   BrowserLaunchArgumentOptions,
+  launch,
   LaunchOptions,
 } from 'puppeteer';
 
@@ -45,7 +46,7 @@ export const launchBrowser = async () => {
   opt.args.push('--disable-dev-shm-usage');
   await closeBrowser();
   debug('launch browser, opt=', opt);
-  browser = (await puppeteer.launch(opt)) as unknown as Browser;
+  browser = (await launch(opt)) as unknown as Browser;
 
   debug('browser created');
 };

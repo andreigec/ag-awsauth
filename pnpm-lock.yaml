@@ -10,7 +10,7 @@ specifiers:
   '@types/node-fetch': 2.6.2
   '@types/readline-sync': 1.4.4
   '@types/yargs': 17.0.17
-  ag-common: 0.0.391
+  ag-common: 0.0.396
   cli-select: 1.1.2
   dotenv: 16.0.3
   esbuild: 0.16.10
@@ -29,7 +29,7 @@ dependencies:
   '@aws-sdk/client-sso-oidc': 3.234.0
   '@aws-sdk/client-sts': 3.234.0
   '@aws-sdk/shared-ini-file-loader': 3.226.0
-  ag-common: 0.0.391
+  ag-common: 0.0.396
   cli-select: 1.1.2
   dotenv: 16.0.3
   esbuild: 0.16.10
@@ -1332,8 +1332,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common/0.0.391:
-    resolution: {integrity: sha512-LkTcrJrjV3zDCigknVUjdI/ClY2kemxMcmuwgXIU0IPnm70hNj8/Gmb4OV6e57VwVz+MkkuMOQ5SVhO50xH9xg==}
+  /ag-common/0.0.396:
+    resolution: {integrity: sha512-OUxdvC/5oJPkjOPFgSCMTt1Zylgg9NcriPiSr85DVgFoTvPII/oRwAndyu3AIEx0wiJRv56taiOeBb55kjZvbA==}
     requiresBuild: true
     peerDependencies:
       '@emotion/react': '>11'
@@ -2569,7 +2569,7 @@ packages:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.2.12
-      ignore: 5.2.0
+      ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
     dev: false
