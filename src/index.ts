@@ -33,7 +33,11 @@ export async function main(args: IApplicationArgs) {
   SetLogShim((...a1) => {
     // eslint-disable-next-line no-console
     console.log(...a1);
-    fs.appendFileSync(logPath, JSON.stringify(a1, null, 2));
+    try {
+      fs.appendFileSync(logPath, JSON.stringify(a1, null, 2));
+    } catch (e) {
+      //
+    }
   });
 
   if (args.wipe) {
@@ -98,7 +102,7 @@ export async function run() {
     error('error:' + e);
     beep(2);
     if (e?.toString) {
-      fs.appendFileSync(logPath, 'error:' + (e as Error).toString());
+      error('error:' + (e as Error).toString());
     }
   }
 }
