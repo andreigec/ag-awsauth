@@ -1,0 +1,8 @@
+{
+  "labels": [
+    "awsauth"
+  ],
+  "extends": [
+    "github>andreigec/renovate"
+  ]
+}

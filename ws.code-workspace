@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {	
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"typescript.tsdk": "node_modules\\typescript\\lib",
+		"files.exclude": {
+			"packages/ui/.cache":true,
+			"packages/ui/.next":true,
+			"packages/infra/build":true,
+			"**/.git": true, 
+			"**/.DS_Store": true, 
+			"**/node_modules": true,
+			"**/dist":true,
+			"node_modules": true
+		}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "server",
+				"type": "node-terminal",
+				"request": "launch",
+				"command": "npm run start",
+				"cwd": "${workspaceFolder}/packages/ui",
+			  },
+			{
+				"name": "client",
+				"type": "pwa-chrome",
+				"request": "launch",
+				"url": "http://localhost:3000",
+				"cwd": "${workspaceFolder}/packages/ui",
+				"webRoot": "${workspaceFolder}/packages/ui",
+			  },
+			//   {
+			// 	"type": "chrome",
+			// 	"request": "attach",
+			// 	"name": "Attach to Chrome",
+			// 	"port": 9222,
+			// 	"urlFilter": "http://localhost:3000/*",
+			// 	"webRoot": "${workspaceFolder}",
+			// 	"cwd": "${workspaceFolder}/packages/ui",
+			//   },
+		  ]
+	},
+
+}
