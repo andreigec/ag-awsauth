@@ -1,9 +1,9 @@
 {
   "name": "ag-awsauth",
   "version": "1.0.0",
-  "description": "",
+  "description": "auth to aws sso/iamv2 easily",
   "main": "dist/index.js",
-  "author": "",
+  "author": "andrei gec (andreigec@hotmail.com)",
   "license": "ISC",
   "private": true,
   "preferGlobal": true,

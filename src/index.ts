@@ -110,6 +110,7 @@ export async function main(args: IApplicationArgs) {
   await updateAwsCredentials(credentials);
   warn(`successfully authed into ${debugRole}`);
 }
+
 export async function run() {
   try {
     const args = await readArguments();
