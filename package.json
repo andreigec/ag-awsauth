@@ -5,7 +5,7 @@
   "author": "andrei gec (andreigec@hotmail.com)",
   "license": "ISC",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "preferGlobal": true,
   "scripts": {
     "format": "eslint --ext .ts,.tsx ./src --fix",
@@ -14,7 +14,7 @@
     "build": "tsc"
   },
   "bin": {
-    "awsauth": "./bin/awsauth.js"
+    "ag-awsauth": "./bin/awsauth.js"
   },
   "files": [
     "bin/**/*",

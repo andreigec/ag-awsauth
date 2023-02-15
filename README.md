@@ -4,6 +4,6 @@
 
 npm i -g awsauth
 
-awsauth -c
+ag-awsauth -c
 
-awsauth
+ag-awsauth

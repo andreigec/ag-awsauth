@@ -1,6 +1,6 @@
 {
   "labels": [
-    "awsauth"
+    "ag-awsauth"
   ],
   "extends": [
     "github>andreigec/renovate"
