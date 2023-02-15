@@ -83,7 +83,7 @@ export async function requestMFA(p: {
   return {
     accessToken,
     ssoAuthn,
-    region: identityCenterRegion,
+    region: identityCenterRegion(),
     accessKeyId: '',
     secretAccessKey: '',
     sessionToken: '',

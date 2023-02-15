@@ -61,4 +61,5 @@ export interface IApplicationArgs {
   applicationfilter?: string;
   verbose: boolean;
   wipe: boolean;
+  config: boolean;
 }

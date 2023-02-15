@@ -6,13 +6,16 @@ import {
   SetLogShim,
   warn,
 } from 'ag-common/dist/common/helpers/log';
+import { config } from 'dotenv';
 import fs from 'fs';
 
 import {
   identityCenterRegion,
   logPath,
+  runConfig,
   ssoStartUrl,
   targetRegion,
+  validateConfig,
 } from './config';
 import { updateAwsCredentials } from './helpers/awsconfig';
 import { chooseAppInstance, readArguments } from './helpers/input';
@@ -25,6 +28,8 @@ import {
 } from './helpers/sso';
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
 import { IApplicationArgs } from './types';
+
+config();
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const beep = require('node-beep');
 
@@ -40,6 +45,18 @@ export async function main(args: IApplicationArgs) {
     }
   });
 
+  if (args.config) {
+    info('running config');
+    runConfig();
+    return;
+  }
+
+  if (!validateConfig()) {
+    console.error('please run config (-c)');
+
+    return;
+  }
+
   if (args.wipe) {
     info('wiping args');
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,8 +69,8 @@ export async function main(args: IApplicationArgs) {
   if (!credentials?.accessToken || !credentials?.ssoAuthn) {
     info('no creds, get access token through manual sign in');
     credentials = await requestMFA({
-      identityCenterRegion,
-      ssoStartUrl,
+      identityCenterRegion: identityCenterRegion(),
+      ssoStartUrl: ssoStartUrl(),
     });
     info('get oidc creds');
     credentials = await getOIDCCredentialsFromAccessToken(credentials);
@@ -74,7 +91,7 @@ export async function main(args: IApplicationArgs) {
     info('account is native aws, directly  connecting');
     credentials = await directStsAssume({
       credentials,
-      targetRegion,
+      targetRegion: targetRegion(),
       metadata: instance.searchMetadata,
     });
     debugRole = instance.searchMetadata.AccountId;
@@ -85,7 +102,7 @@ export async function main(args: IApplicationArgs) {
     credentials = await getApplicationCreds({
       ...samlDetails,
       originCreds: credentials,
-      targetRegion,
+      targetRegion: targetRegion(),
     });
     debugRole = samlDetails.roleArn;
   }

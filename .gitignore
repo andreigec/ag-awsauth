@@ -8,3 +8,5 @@ tsconfig.tsbuildinfo
 
 /packages/api/log.txt
 /log.txt
+
+/.env
