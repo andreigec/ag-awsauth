@@ -8,6 +8,7 @@ import {
   LaunchOptions,
 } from 'puppeteer';
 
+import { globalargs } from '..';
 import { enterMFA } from './input';
 
 let browser: Browser | undefined;
@@ -30,7 +31,7 @@ export const launchBrowser = async () => {
     BrowserLaunchArgumentOptions &
     BrowserConnectOptions = {
     defaultViewport: { height: 1000, width: 500 },
-    headless: true, //chromium.headless,
+    headless: !globalargs?.verbose,
     ignoreHTTPSErrors: true,
     devtools: false,
   };

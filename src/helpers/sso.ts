@@ -23,7 +23,7 @@ export const getAssumedRole = async (p: {
   accessToken: string;
   accountId?: string;
 }): Promise<{ accountId: string; roleName: string }> => {
-  const sso = new SSOClient({ region: identityCenterRegion() });
+  const sso = new SSOClient({ region: identityCenterRegion });
   let accountId = p.accountId;
   if (!accountId) {
     const accounts = await sso.send(
@@ -69,7 +69,7 @@ export const getOIDCCredentialsFromAccessToken = async (p: {
   accessToken: string;
   ssoAuthn: string;
 }): Promise<IAwsCreds> => {
-  const sso = new SSOClient({ region: identityCenterRegion() });
+  const sso = new SSOClient({ region: identityCenterRegion });
   const role = await getAssumedRole({ accessToken: p.accessToken });
   const ssoResp = await sso.send(
     new GetRoleCredentialsCommand({
@@ -93,14 +93,14 @@ export const getOIDCCredentialsFromAccessToken = async (p: {
     accessKeyId: rc.accessKeyId,
     secretAccessKey: rc.secretAccessKey,
     sessionToken: rc.sessionToken,
-    region: identityCenterRegion(),
+    region: identityCenterRegion,
   };
 };
 
 export async function appInstances(p: { ssoAuthn: string }) {
   const ai = (await (
     await fetch(
-      `https://portal.sso.${identityCenterRegion()}.amazonaws.com/instance/appinstances`,
+      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstances`,
       { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
     )
   ).json()) as IAppInstances;
@@ -118,9 +118,7 @@ export async function getSamlAssertion(
 ): Promise<{ samlAssertion: string; providerArn: string; roleArn: string }> {
   const det = (await (
     await fetch(
-      `https://portal.sso.${identityCenterRegion()}.amazonaws.com/instance/appinstance/${
-        instance.id
-      }/profiles`,
+      `https://portal.sso.${identityCenterRegion}.amazonaws.com/instance/appinstance/${instance.id}/profiles`,
       { headers: { 'x-amz-sso_bearer_token': p.ssoAuthn } },
     )
   ).json()) as IAppInstanceDetails;
@@ -164,7 +162,7 @@ export const tryExistingCredentials = async (): Promise<
     sessionToken: credraw.default.aws_session_token,
     accessToken: credraw.default.aws_access_token,
     ssoAuthn: credraw.default.aws_sso_authn,
-    region: identityCenterRegion(),
+    region: identityCenterRegion,
   };
 
   const v = await validateCredentials(credentials);
@@ -189,7 +187,7 @@ export const tryExistingCredentials = async (): Promise<
   return {
     accessToken: '',
     ssoAuthn: '',
-    region: identityCenterRegion(),
+    region: identityCenterRegion,
     accessKeyId: '',
     secretAccessKey: '',
     sessionToken: '',

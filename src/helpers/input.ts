@@ -45,22 +45,33 @@ export async function readArguments(): Promise<IApplicationArgs> {
   )
     .help('h')
     .alias('h', 'help')
+
     .option('applicationfilter', {
       alias: 'af',
       type: 'string',
       description: 'Will select account that matches passed in string',
     })
-    .boolean('verbose')
-    .alias('v', 'verbose')
-    .default('verbose', true)
 
-    .boolean('wipe')
-    .alias('w', 'wipe')
-    .default('wipe', false)
+    .option('verbose', {
+      alias: 'v',
+      type: 'boolean',
+      description: 'Run with verbose logging',
+      default: false,
+    })
 
-    .boolean('config')
-    .alias('c', 'config')
-    .default('config', false)
+    .option('wipe', {
+      alias: 'w',
+      type: 'boolean',
+      description: 'Clear previously saved session details and quit',
+      default: false,
+    })
+
+    .option('config', {
+      alias: 'c',
+      type: 'boolean',
+      description: 'Configure application settings',
+      default: false,
+    })
 
     .parse();
 

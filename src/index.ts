@@ -8,11 +8,14 @@ import {
 } from 'ag-common/dist/common/helpers/log';
 import { config } from 'dotenv';
 import fs from 'fs';
+import path from 'path';
 
 import {
+  basePath,
   identityCenterRegion,
   logPath,
   runConfig,
+  setBasePath,
   ssoStartUrl,
   targetRegion,
   validateConfig,
@@ -29,12 +32,21 @@ import {
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
 import { IApplicationArgs } from './types';
 
-config();
+if (__dirname.endsWith('dist')) {
+  setBasePath(path.resolve(__dirname, '../'));
+} else {
+  setBasePath(__dirname);
+}
+
+config({ path: basePath + '/.env' });
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const beep = require('node-beep');
 
+export let globalargs: IApplicationArgs | undefined;
 export async function main(args: IApplicationArgs) {
-  SetLogLevel(args.verbose ? 'INFO' : 'WARN');
+  globalargs = args;
+  SetLogLevel(args.verbose ? 'TRACE' : 'WARN');
   SetLogShim((...a1) => {
     // eslint-disable-next-line no-console
     console.log(...a1);
@@ -51,16 +63,17 @@ export async function main(args: IApplicationArgs) {
     return;
   }
 
-  if (!validateConfig()) {
-    console.error('please run config (-c)');
-
-    return;
-  }
-
   if (args.wipe) {
     info('wiping args');
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await updateAwsCredentials(undefined);
+    return;
+  }
+
+  if (!validateConfig()) {
+    // eslint-disable-next-line no-console
+    console.error('please run config (-c)');
+
     return;
   }
 
@@ -69,8 +82,8 @@ export async function main(args: IApplicationArgs) {
   if (!credentials?.accessToken || !credentials?.ssoAuthn) {
     info('no creds, get access token through manual sign in');
     credentials = await requestMFA({
-      identityCenterRegion: identityCenterRegion(),
-      ssoStartUrl: ssoStartUrl(),
+      identityCenterRegion: identityCenterRegion,
+      ssoStartUrl: ssoStartUrl,
     });
     info('get oidc creds');
     credentials = await getOIDCCredentialsFromAccessToken(credentials);
@@ -91,7 +104,7 @@ export async function main(args: IApplicationArgs) {
     info('account is native aws, directly  connecting');
     credentials = await directStsAssume({
       credentials,
-      targetRegion: targetRegion(),
+      targetRegion,
       metadata: instance.searchMetadata,
     });
     debugRole = instance.searchMetadata.AccountId;
@@ -102,7 +115,7 @@ export async function main(args: IApplicationArgs) {
     credentials = await getApplicationCreds({
       ...samlDetails,
       originCreds: credentials,
-      targetRegion: targetRegion(),
+      targetRegion,
     });
     debugRole = samlDetails.roleArn;
   }
