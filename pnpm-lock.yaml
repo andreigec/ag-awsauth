@@ -17,7 +17,6 @@ specifiers:
   esbuild: 0.17.8
   eslint-config-e7npm: 0.0.8
   ini: 3.0.1
-  node-beep: 0.0.3
   node-fetch: 2.6.9
   puppeteer: 19.7.1
   readline-sync: 1.4.10
@@ -37,7 +36,6 @@ dependencies:
   esbuild: 0.17.8
   eslint-config-e7npm: 0.0.8
   ini: 3.0.1
-  node-beep: 0.0.3
   node-fetch: 2.6.9
   puppeteer: 19.7.1_typescript@4.9.5
   readline-sync: 1.4.10
@@ -1563,10 +1561,6 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-    dev: false
-
-  /bindings/1.2.1:
-    resolution: {integrity: sha512-u4cBQNepWxYA55FunZSM7wMi55yQaN0otnhhilNoWHq0MfOfJeQx0v0mRRpolGOExPjZcl6FtB0BB8Xkb88F0g==}
     dev: false
 
   /bl/4.1.0:
@@ -3100,14 +3094,6 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
-    dev: false
-
-  /node-beep/0.0.3:
-    resolution: {integrity: sha512-M6J3aeHLQB3k/+VcfCRTWVmQ444xXIm/dBVuCOGlPjPxi+RMV2w/neT6rKFeJtubnKbmT6s1PFFLQjNphDR3mw==}
-    engines: {node: '>=0.8.0'}
-    requiresBuild: true
-    dependencies:
-      bindings: 1.2.1
     dev: false
 
   /node-cache/5.1.2:
