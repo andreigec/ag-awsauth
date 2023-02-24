@@ -40,9 +40,6 @@ if (__dirname.endsWith('dist')) {
 
 config({ path: basePath + '/.env' });
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const beep = require('node-beep');
-
 export let globalargs: IApplicationArgs | undefined;
 export async function main(args: IApplicationArgs) {
   globalargs = args;
@@ -125,6 +122,8 @@ export async function main(args: IApplicationArgs) {
 }
 
 export async function run() {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const beep = require('node-beep');
   try {
     const args = await readArguments();
     await main(args);
