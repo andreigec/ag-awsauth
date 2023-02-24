@@ -49,3 +49,5 @@ export const runConfig = () => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   require('child_process').exec(`start "" "${pn}"`);
 };
+
+export const timeoutMs = 10000;

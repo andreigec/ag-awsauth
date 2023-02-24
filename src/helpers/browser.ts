@@ -9,6 +9,7 @@ import {
 } from 'puppeteer';
 
 import { globalargs } from '..';
+import { timeoutMs } from '../config';
 import { enterMFA } from './input';
 
 let browser: Browser | undefined;
@@ -67,7 +68,7 @@ export const goToPage = async (url: string) => {
     const page = await browser.newPage();
     await page.goto(url, {
       waitUntil: ['networkidle2'],
-      timeout: 10000,
+      timeout: timeoutMs,
     });
     return page;
   } catch (e) {
@@ -85,7 +86,7 @@ export async function getMFA(p: {
   info('start mfa');
   const page = await goToPage(p.verificationUriComplete);
   info('username block');
-  await page.waitForSelector('#username-input');
+  await page.waitForSelector('#username-input', { timeout: timeoutMs });
   await page.focus('#username-input input');
   await page.keyboard.type(p.creds.username);
   await page.$eval('#username-submit-button button', (el) =>
@@ -94,7 +95,7 @@ export async function getMFA(p: {
 
   //
   info('password block');
-  await page.waitForSelector('#password-input');
+  await page.waitForSelector('#password-input', { timeout: timeoutMs });
   await page.focus('#password-input input');
   await page.keyboard.type(p.creds.password);
   await page.$eval('#password-submit-button button', (el) =>
@@ -107,7 +108,7 @@ export async function getMFA(p: {
 
   try {
     const messageDiv = await page.waitForSelector('.awsui-alert-message', {
-      timeout: 2000,
+      timeout: 2000, //can be short
     });
 
     const value = await page.evaluate(
@@ -132,7 +133,7 @@ export async function getMFA(p: {
   do {
     info('mfa block');
     const { mfa } = enterMFA();
-    await page.waitForSelector('#input-0');
+    await page.waitForSelector('#input-0', { timeout: timeoutMs });
     await page.focus('#input-0 input');
     await page.keyboard.type(mfa);
     await page.$eval('.awsui-signin-button-container button', (el) =>
@@ -144,7 +145,7 @@ export async function getMFA(p: {
       await sleep(250);
       await page.waitForNetworkIdle({ idleTime: 250 });
       const messageDiv = await page.waitForSelector('.awsui-alert-message', {
-        timeout: 2000,
+        timeout: 2000, // can be short
       });
 
       const value = await page.evaluate(
@@ -170,14 +171,16 @@ export async function getMFA(p: {
   //
   await sleep(3000);
   await page.waitForNetworkIdle({ idleTime: 250 });
-  await page.waitForSelector('#cli_login_button', { timeout: 5000 });
+  await page.waitForSelector('#cli_login_button', { timeout: timeoutMs });
   await page.$eval('#cli_login_button', (el) =>
     (el as HTMLButtonElement).click(),
   );
 
   await sleep(250);
   await page.waitForNetworkIdle({ idleTime: 250 });
-  await page.waitForSelector('.awsui-icon-variant-success', { timeout: 5000 });
+  await page.waitForSelector('.awsui-icon-variant-success', {
+    timeout: timeoutMs,
+  });
   warn('mfa success');
 
   const cookies = await page?.cookies();
