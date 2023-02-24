@@ -171,8 +171,12 @@ export async function getMFA(p: {
   //
   await sleep(3000);
   await page.waitForNetworkIdle({ idleTime: 250 });
-  await page.waitForSelector('#cli_login_button', { timeout: timeoutMs });
-  await page.$eval('#cli_login_button', (el) =>
+  await page.waitForSelector('.awsui-signin-button', {
+    timeout: timeoutMs,
+    visible: true, //may need this for more calls
+  });
+
+  await page.$eval('.awsui-signin-button', (el) =>
     (el as HTMLButtonElement).click(),
   );
 

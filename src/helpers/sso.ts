@@ -180,7 +180,12 @@ export const tryExistingCredentials = async (): Promise<
       return credentials;
     } catch (e) {
       //
-      info('access token or sso expired, need to wipe', e);
+      const em = (e as Error).toString();
+      if (em.includes('is expired') || em.includes('or invalid')) {
+        info('access token or sso expired, need to wipe');
+      } else {
+        info(e);
+      }
     }
   }
 
