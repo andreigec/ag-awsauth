@@ -50,4 +50,4 @@ export const runConfig = () => {
   require('child_process').exec(`start "" "${pn}"`);
 };
 
-export const timeoutMs = 10000;
+export const timeoutMs = 30000;
