@@ -104,6 +104,7 @@ export async function main(args: IApplicationArgs) {
       targetRegion,
       metadata: instance.searchMetadata,
     });
+
     debugRole = instance.searchMetadata.AccountId;
   } else {
     info('account is external app, getting saml');
