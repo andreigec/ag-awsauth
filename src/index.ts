@@ -122,15 +122,12 @@ export async function main(args: IApplicationArgs) {
 }
 
 export async function run() {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const beep = require('node-beep');
   try {
     const args = await readArguments();
     await main(args);
-    beep(1);
   } catch (e) {
     error('error:' + e);
-    beep(2);
+
     if (e?.toString) {
       error('error:' + (e as Error).toString());
     }

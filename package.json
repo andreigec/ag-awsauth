@@ -34,7 +34,6 @@
     "esbuild": "0.17.8",
     "eslint-config-e7npm": "0.0.8",
     "ini": "3.0.1",
-    "node-beep": "0.0.3",
     "node-fetch": "2.6.9",
     "puppeteer": "19.7.1",
     "readline-sync": "1.4.10",
