@@ -5,7 +5,7 @@
   "author": "andrei gec (andreigec@hotmail.com)",
   "license": "ISC",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "preferGlobal": true,
   "scripts": {
     "format": "eslint --ext .ts,.tsx ./src --fix",
@@ -27,7 +27,7 @@
     "@aws-sdk/client-sso-oidc": "3.272.0",
     "@aws-sdk/client-sts": "3.272.0",
     "@aws-sdk/shared-ini-file-loader": "3.272.0",
-    "ag-common": "0.0.412",
+    "ag-common": "0.0.414",
     "cli-select": "1.1.2",
     "dotenv": "16.0.3",
     "envfile": "6.18.0",
