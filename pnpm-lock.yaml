@@ -16,7 +16,7 @@ specifiers:
   envfile: 6.18.0
   esbuild: 0.17.12
   eslint-config-e7npm: 0.0.9
-  ini: 3.0.1
+  ini: 4.0.0
   node-fetch: 2.6.9
   puppeteer: 19.7.5
   readline-sync: 1.4.10
@@ -35,7 +35,7 @@ dependencies:
   envfile: 6.18.0
   esbuild: 0.17.12
   eslint-config-e7npm: 0.0.9
-  ini: 3.0.1
+  ini: 4.0.0
   node-fetch: 2.6.9
   puppeteer: 19.7.5_typescript@5.0.2
   readline-sync: 1.4.10
@@ -2679,9 +2679,9 @@ packages:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: false
 
-  /ini/3.0.1:
-    resolution: {integrity: sha512-it4HyVAUTKBc6m8e1iXWvXSTdndF7HbdN713+kvLrymxTaU4AUBWrJ4vEooP+V7fexnVD3LKcBshjGGPefSMUQ==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+  /ini/4.0.0:
+    resolution: {integrity: sha512-t0ikzf5qkSFqRl1e6ejKBe+Tk2bsQd8ivEkcisyGXsku2t8NvXZ1Y3RRz5vxrDgOrTBOi13CvGsVoI5wVpd7xg==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: false
 
   /internal-slot/1.0.3:

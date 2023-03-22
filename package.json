@@ -33,7 +33,7 @@
     "envfile": "6.18.0",
     "esbuild": "0.17.12",
     "eslint-config-e7npm": "0.0.9",
-    "ini": "3.0.1",
+    "ini": "4.0.0",
     "node-fetch": "2.6.9",
     "puppeteer": "19.7.5",
     "readline-sync": "1.4.10",
