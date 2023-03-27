@@ -23,11 +23,11 @@
     "LICENSE.md"
   ],
   "dependencies": {
-    "@aws-sdk/client-sso": "3.299.0",
-    "@aws-sdk/client-sso-oidc": "3.299.0",
-    "@aws-sdk/client-sts": "3.299.0",
-    "@aws-sdk/shared-ini-file-loader": "3.296.0",
-    "ag-common": "0.0.422",
+    "@aws-sdk/client-sso": "3.300.0",
+    "@aws-sdk/client-sso-oidc": "3.300.0",
+    "@aws-sdk/client-sts": "3.300.0",
+    "@aws-sdk/shared-ini-file-loader": "3.300.0",
+    "ag-common": "0.0.423",
     "cli-select": "1.1.2",
     "dotenv": "16.0.3",
     "envfile": "6.18.0",
@@ -46,7 +46,7 @@
     "@types/node": "18.15.10",
     "@types/node-fetch": "2.6.2",
     "@types/readline-sync": "1.4.4",
-    "@types/yargs": "17.0.23"
+    "@types/yargs": "17.0.24"
   },
   "engines": {
     "node": ">=16.0.0",
