@@ -23,9 +23,9 @@
     "LICENSE.md"
   ],
   "dependencies": {
-    "@aws-sdk/client-sso": "3.321.1",
-    "@aws-sdk/client-sso-oidc": "3.321.1",
-    "@aws-sdk/client-sts": "3.321.1",
+    "@aws-sdk/client-sso": "3.326.0",
+    "@aws-sdk/client-sso-oidc": "3.326.0",
+    "@aws-sdk/client-sts": "3.326.0",
     "@aws-sdk/shared-ini-file-loader": "3.310.0",
     "ag-common": "0.0.429",
     "cli-select": "1.1.2",
