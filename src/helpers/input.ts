@@ -40,7 +40,7 @@ export async function chooseAppInstance(
 }
 
 export async function readArguments(): Promise<IApplicationArgs> {
-  const { applicationfilter, verbose, wipe, config } = await yargs(
+  const { version, applicationfilter, verbose, wipe, config } = await yargs(
     hideBin(process.argv),
   )
     .help('h')
@@ -73,9 +73,15 @@ export async function readArguments(): Promise<IApplicationArgs> {
       default: false,
     })
 
+    .option('version', {
+      type: 'boolean',
+      description: 'Show application version',
+      default: false,
+    })
+
     .parse();
 
-  return { applicationfilter, verbose, wipe, config };
+  return { applicationfilter, verbose, wipe, config, version };
 }
 
 export function enterCreds() {

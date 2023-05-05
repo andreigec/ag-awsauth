@@ -54,6 +54,13 @@ export async function main(args: IApplicationArgs) {
     }
   });
 
+  if (args.version) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const p = require('../../package.json');
+    warn('version=' + p.version);
+    return;
+  }
+
   if (args.config) {
     info('running config');
     runConfig();

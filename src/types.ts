@@ -62,4 +62,5 @@ export interface IApplicationArgs {
   verbose: boolean;
   wipe: boolean;
   config: boolean;
+  version: boolean;
 }
