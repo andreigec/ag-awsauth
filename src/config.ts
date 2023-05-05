@@ -51,3 +51,4 @@ export const runConfig = () => {
 };
 
 export const timeoutMs = 30000;
+export const timeoutShortMs = 3000;

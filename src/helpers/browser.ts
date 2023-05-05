@@ -9,7 +9,7 @@ import {
 } from 'puppeteer';
 
 import { globalargs } from '..';
-import { timeoutMs } from '../config';
+import { timeoutMs, timeoutShortMs } from '../config';
 import { enterMFA } from './input';
 
 let browser: Browser | undefined;
@@ -108,7 +108,7 @@ export async function getMFA(p: {
 
   try {
     const messageDiv = await page.waitForSelector('.awsui-alert-message', {
-      timeout: 2000, //can be short
+      timeout: timeoutShortMs,
     });
 
     const value = await page.evaluate(
@@ -146,7 +146,7 @@ export async function getMFA(p: {
       await page.waitForNetworkIdle({ idleTime: 250 });
       info('waiting for potential error');
       const messageDiv = await page.waitForSelector('.awsui-alert-message', {
-        timeout: 2000, // can be short
+        timeout: timeoutShortMs,
       });
 
       const value = await page.evaluate(
@@ -170,11 +170,11 @@ export async function getMFA(p: {
     }
   } while (retry);
   //
-  await sleep(3000);
+  await sleep(timeoutShortMs);
   await page.waitForNetworkIdle({ idleTime: 250 });
   info('waiting for sign in button');
   await page.waitForSelector('.awsui-signin-button', {
-    timeout: 2000,
+    timeout: timeoutShortMs,
   });
   info('pressing sign in');
   await page.$eval('.awsui-signin-button', (el) =>
@@ -183,7 +183,11 @@ export async function getMFA(p: {
 
   info('waiting for completion');
   await sleep(250);
-  await page.waitForNetworkIdle({ idleTime: 250 });
+  try {
+    await page.waitForNetworkIdle({ idleTime: 250, timeout: timeoutShortMs });
+  } catch (e) {
+    //
+  }
   info('waiting for success');
   await page.waitForSelector('.awsui-icon-variant-success', {
     timeout: timeoutMs,
