@@ -144,6 +144,7 @@ export async function getMFA(p: {
     try {
       await sleep(250);
       await page.waitForNetworkIdle({ idleTime: 250 });
+      info('waiting for potential error');
       const messageDiv = await page.waitForSelector('.awsui-alert-message', {
         timeout: 2000, // can be short
       });
@@ -171,17 +172,19 @@ export async function getMFA(p: {
   //
   await sleep(3000);
   await page.waitForNetworkIdle({ idleTime: 250 });
+  info('waiting for sign in button');
   await page.waitForSelector('.awsui-signin-button', {
-    timeout: timeoutMs,
-    visible: true, //may need this for more calls
+    timeout: 2000,
   });
-
+  info('pressing sign in');
   await page.$eval('.awsui-signin-button', (el) =>
     (el as HTMLButtonElement).click(),
   );
 
+  info('waiting for completion');
   await sleep(250);
   await page.waitForNetworkIdle({ idleTime: 250 });
+  info('waiting for success');
   await page.waitForSelector('.awsui-icon-variant-success', {
     timeout: timeoutMs,
   });
