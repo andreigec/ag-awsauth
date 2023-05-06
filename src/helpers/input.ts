@@ -73,7 +73,7 @@ export async function readArguments(): Promise<IApplicationArgs> {
       default: false,
     })
 
-    .option('version', {
+    .option('vers', {
       type: 'boolean',
       description: 'Show application version',
       default: false,
