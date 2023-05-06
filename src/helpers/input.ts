@@ -40,9 +40,13 @@ export async function chooseAppInstance(
 }
 
 export async function readArguments(): Promise<IApplicationArgs> {
-  const { version, applicationfilter, verbose, wipe, config } = await yargs(
-    hideBin(process.argv),
-  )
+  const {
+    vers: version,
+    applicationfilter,
+    verbose,
+    wipe,
+    config,
+  } = await yargs(hideBin(process.argv))
     .help('h')
     .alias('h', 'help')
 
