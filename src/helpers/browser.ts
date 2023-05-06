@@ -32,7 +32,7 @@ export const launchBrowser = async () => {
     BrowserLaunchArgumentOptions &
     BrowserConnectOptions = {
     defaultViewport: { height: 1000, width: 500 },
-    headless: globalargs?.verbose ? 'new' : false,
+    headless: globalargs?.verbose ? false : 'new',
 
     ignoreHTTPSErrors: true,
     devtools: false,
