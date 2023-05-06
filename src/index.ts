@@ -55,8 +55,15 @@ export async function main(args: IApplicationArgs) {
   });
 
   if (args.version) {
+    let pjpath = '../package.json';
+    if (!fs.existsSync(pjpath)) {
+      pjpath = '../../package.json';
+    }
+    if (!fs.existsSync(pjpath)) {
+      throw new Error('package json cant be found');
+    }
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const p = require('../../package.json');
+    const p = require(pjpath);
     warn('version=' + p.version);
     return;
   }
