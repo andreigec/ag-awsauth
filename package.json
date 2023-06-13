@@ -23,9 +23,9 @@
     "LICENSE.md"
   ],
   "dependencies": {
-    "@aws-sdk/client-sso": "3.350.0",
-    "@aws-sdk/client-sso-oidc": "3.350.0",
-    "@aws-sdk/client-sts": "3.350.0",
+    "@aws-sdk/client-sso": "3.352.0",
+    "@aws-sdk/client-sso-oidc": "3.352.0",
+    "@aws-sdk/client-sts": "3.352.0",
     "@aws-sdk/shared-ini-file-loader": "3.347.0",
     "ag-common": "0.0.436",
     "cli-select": "1.1.2",
@@ -34,14 +34,14 @@
     "eslint-config-e7npm": "0.0.9",
     "ini": "4.1.1",
     "node-fetch": "2.6.11",
-    "puppeteer": "20.6.0",
+    "puppeteer": "20.7.1",
     "readline-sync": "1.4.10",
     "typescript": "5.1.3",
     "yargs": "17.7.2"
   },
   "devDependencies": {
     "@types/ini": "1.3.31",
-    "@types/node": "20.3.0",
+    "@types/node": "20.3.1",
     "@types/node-fetch": "2.6.4",
     "@types/readline-sync": "1.4.4",
     "@types/yargs": "17.0.24"
