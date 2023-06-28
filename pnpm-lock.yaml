@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@aws-sdk/client-sso':
-    specifier: 3.360.0
-    version: 3.360.0
+    specifier: 3.362.0
+    version: 3.362.0
   '@aws-sdk/client-sso-oidc':
-    specifier: 3.360.0
-    version: 3.360.0
+    specifier: 3.362.0
+    version: 3.362.0
   '@aws-sdk/client-sts':
-    specifier: 3.360.0
-    version: 3.360.0
+    specifier: 3.362.0
+    version: 3.362.0
   '@aws-sdk/shared-ini-file-loader':
     specifier: 3.357.0
     version: 3.357.0
@@ -40,13 +40,13 @@ dependencies:
     version: 2.6.11
   puppeteer:
     specifier: 20.7.3
-    version: 20.7.3(typescript@5.1.3)
+    version: 20.7.3(typescript@5.1.5)
   readline-sync:
     specifier: 1.4.10
     version: 1.4.10
   typescript:
-    specifier: 5.1.3
-    version: 5.1.3
+    specifier: 5.1.5
+    version: 5.1.5
   yargs:
     specifier: 17.7.2
     version: 17.7.2
@@ -139,8 +139,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/client-sso-oidc@3.360.0:
-    resolution: {integrity: sha512-czIpPt75fS3gH3vgFz76+WTaKcvPxC/DnPuqVyHdihMmP0UuwGPU9jn+Xx9RdUw7Yay3+rJRe3AYgBn4Xb220g==}
+  /@aws-sdk/client-sso-oidc@3.362.0:
+    resolution: {integrity: sha512-/urfavz0BjyeWSahp6oh9DjzV8oM5EPmza7iIZXJaPyK03enjse9A52vse4/EfKWaSHtapIgV3ZUKvYDk8AcKA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -154,7 +154,7 @@ packages:
       '@aws-sdk/middleware-host-header': 3.357.0
       '@aws-sdk/middleware-logger': 3.357.0
       '@aws-sdk/middleware-recursion-detection': 3.357.0
-      '@aws-sdk/middleware-retry': 3.357.0
+      '@aws-sdk/middleware-retry': 3.362.0
       '@aws-sdk/middleware-serde': 3.357.0
       '@aws-sdk/middleware-stack': 3.357.0
       '@aws-sdk/middleware-user-agent': 3.357.0
@@ -169,7 +169,7 @@ packages:
       '@aws-sdk/util-defaults-mode-browser': 3.360.0
       '@aws-sdk/util-defaults-mode-node': 3.360.0
       '@aws-sdk/util-endpoints': 3.357.0
-      '@aws-sdk/util-retry': 3.357.0
+      '@aws-sdk/util-retry': 3.362.0
       '@aws-sdk/util-user-agent-browser': 3.357.0
       '@aws-sdk/util-user-agent-node': 3.357.0
       '@aws-sdk/util-utf8': 3.310.0
@@ -180,8 +180,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-sso@3.360.0:
-    resolution: {integrity: sha512-0f6eG+6XFbDxrma5xxNGg/FJxh/OHC6h8AkfNms9Lv1gBoQSagpcTor+ax0z9F6lypOjaelX6k4DpeKAp4PZeA==}
+  /@aws-sdk/client-sso@3.362.0:
+    resolution: {integrity: sha512-11M+S7mlr8MBE8NB2yPZWOeb7BV4pcfQ+2p9EE9jVDbcq7VW21chvnf4F+L11aNV1yNtswsnHOSHLKM6YBMM7w==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -195,7 +195,7 @@ packages:
       '@aws-sdk/middleware-host-header': 3.357.0
       '@aws-sdk/middleware-logger': 3.357.0
       '@aws-sdk/middleware-recursion-detection': 3.357.0
-      '@aws-sdk/middleware-retry': 3.357.0
+      '@aws-sdk/middleware-retry': 3.362.0
       '@aws-sdk/middleware-serde': 3.357.0
       '@aws-sdk/middleware-stack': 3.357.0
       '@aws-sdk/middleware-user-agent': 3.357.0
@@ -210,7 +210,7 @@ packages:
       '@aws-sdk/util-defaults-mode-browser': 3.360.0
       '@aws-sdk/util-defaults-mode-node': 3.360.0
       '@aws-sdk/util-endpoints': 3.357.0
-      '@aws-sdk/util-retry': 3.357.0
+      '@aws-sdk/util-retry': 3.362.0
       '@aws-sdk/util-user-agent-browser': 3.357.0
       '@aws-sdk/util-user-agent-node': 3.357.0
       '@aws-sdk/util-utf8': 3.310.0
@@ -221,14 +221,14 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-sts@3.360.0:
-    resolution: {integrity: sha512-ORRwSdwlSYGHfhQCXKtr1eJeTjI14l5IZRJbRDgXs46y4/GQj/rt/2Q6WGjVMfM1ZRRiEII2/vK7mU7IJcWkFw==}
+  /@aws-sdk/client-sts@3.362.0:
+    resolution: {integrity: sha512-4Kh6oM2hfJbckuMb9O5eRIG66s/eA0wazXYvCbxSiSi3XgkX9L4m5OSNxlzLPe7uVgkEx8ykuk8Xz6qZrZWJcQ==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
       '@aws-sdk/config-resolver': 3.357.0
-      '@aws-sdk/credential-provider-node': 3.360.0
+      '@aws-sdk/credential-provider-node': 3.362.0
       '@aws-sdk/fetch-http-handler': 3.357.0
       '@aws-sdk/hash-node': 3.357.0
       '@aws-sdk/invalid-dependency': 3.357.0
@@ -237,7 +237,7 @@ packages:
       '@aws-sdk/middleware-host-header': 3.357.0
       '@aws-sdk/middleware-logger': 3.357.0
       '@aws-sdk/middleware-recursion-detection': 3.357.0
-      '@aws-sdk/middleware-retry': 3.357.0
+      '@aws-sdk/middleware-retry': 3.362.0
       '@aws-sdk/middleware-sdk-sts': 3.357.0
       '@aws-sdk/middleware-serde': 3.357.0
       '@aws-sdk/middleware-signing': 3.357.0
@@ -254,7 +254,7 @@ packages:
       '@aws-sdk/util-defaults-mode-browser': 3.360.0
       '@aws-sdk/util-defaults-mode-node': 3.360.0
       '@aws-sdk/util-endpoints': 3.357.0
-      '@aws-sdk/util-retry': 3.357.0
+      '@aws-sdk/util-retry': 3.362.0
       '@aws-sdk/util-user-agent-browser': 3.357.0
       '@aws-sdk/util-user-agent-node': 3.357.0
       '@aws-sdk/util-utf8': 3.310.0
@@ -296,14 +296,14 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/credential-provider-ini@3.360.0:
-    resolution: {integrity: sha512-pWuLTq+yjSFssPGhDJ8oxvZsu7/F1KissGRt65G4qrfxHhoiMRcLF1GtFJueDQpitZ1i3mZXHVn/OSv4LPQ1Lw==}
+  /@aws-sdk/credential-provider-ini@3.362.0:
+    resolution: {integrity: sha512-56gOo0XrqfEXTYrpWwZEYqrKEyNNpyNNvagfuP29d4aqok7ON5CkL1ymmKhNuDGHbbHXVGOIGdLNJBkGBgwE1g==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-sdk/credential-provider-env': 3.357.0
       '@aws-sdk/credential-provider-imds': 3.357.0
       '@aws-sdk/credential-provider-process': 3.357.0
-      '@aws-sdk/credential-provider-sso': 3.360.0
+      '@aws-sdk/credential-provider-sso': 3.362.0
       '@aws-sdk/credential-provider-web-identity': 3.357.0
       '@aws-sdk/property-provider': 3.357.0
       '@aws-sdk/shared-ini-file-loader': 3.357.0
@@ -313,15 +313,15 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/credential-provider-node@3.360.0:
-    resolution: {integrity: sha512-j4Lu5vXkdzz/L6fGKKxnL0vcwAGHlwFHjTg9nRagMn1lvaVjtktXeM30duHTBQq9i+ejdFxpVNWYrmHGaWPNdg==}
+  /@aws-sdk/credential-provider-node@3.362.0:
+    resolution: {integrity: sha512-G/oCGTdN3Gx1HgSX6KlGC71q9EQw9luSgGGIgZHAw9u3IllLEARqxVQ5PUPlhEM4FkNNMpzicUbWeI5NeMRuyA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-sdk/credential-provider-env': 3.357.0
       '@aws-sdk/credential-provider-imds': 3.357.0
-      '@aws-sdk/credential-provider-ini': 3.360.0
+      '@aws-sdk/credential-provider-ini': 3.362.0
       '@aws-sdk/credential-provider-process': 3.357.0
-      '@aws-sdk/credential-provider-sso': 3.360.0
+      '@aws-sdk/credential-provider-sso': 3.362.0
       '@aws-sdk/credential-provider-web-identity': 3.357.0
       '@aws-sdk/property-provider': 3.357.0
       '@aws-sdk/shared-ini-file-loader': 3.357.0
@@ -341,14 +341,14 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/credential-provider-sso@3.360.0:
-    resolution: {integrity: sha512-kW0FR8AbMQrJxADxIqYSjHVN2RXwHmA5DzogYm1AjOkYRMN9JHDVOMQP2K2M6FCynZqTYsKW5lzjPOjS0fu8Dw==}
+  /@aws-sdk/credential-provider-sso@3.362.0:
+    resolution: {integrity: sha512-jf5jG8IQXNSTuOPMT0SMOpBi+Tlct+3Ik5njpEECFzo5POzU8DgJkc2ALMNW5j+XojuchwgeqWZclPRoacKjVw==}
     engines: {node: '>=14.0.0'}
     dependencies:
-      '@aws-sdk/client-sso': 3.360.0
+      '@aws-sdk/client-sso': 3.362.0
       '@aws-sdk/property-provider': 3.357.0
       '@aws-sdk/shared-ini-file-loader': 3.357.0
-      '@aws-sdk/token-providers': 3.360.0
+      '@aws-sdk/token-providers': 3.362.0
       '@aws-sdk/types': 3.357.0
       tslib: 2.5.0
     transitivePeerDependencies:
@@ -453,15 +453,15 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/middleware-retry@3.357.0:
-    resolution: {integrity: sha512-ZCbXCYv3nglQqwREYxxpclrnR9MYPAnHlLcC8e9PbApqxGnaZdhoywxoqbgqT3hf/RM7kput4vEHDl1fyymcRQ==}
+  /@aws-sdk/middleware-retry@3.362.0:
+    resolution: {integrity: sha512-ZFsty5fXIdvTTm+GnTtCPre89b2QFZYQmD0L5nhJULDFoU5Fz/bsI5C3b98/wb4YCAIfXBZpx4Kh2RAEKnxkyg==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-sdk/protocol-http': 3.357.0
       '@aws-sdk/service-error-classification': 3.357.0
       '@aws-sdk/types': 3.357.0
       '@aws-sdk/util-middleware': 3.357.0
-      '@aws-sdk/util-retry': 3.357.0
+      '@aws-sdk/util-retry': 3.362.0
       tslib: 2.5.0
       uuid: 8.3.2
     dev: false
@@ -604,11 +604,11 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/token-providers@3.360.0:
-    resolution: {integrity: sha512-gtnCmn2NL7uSwadqQPeU74Wo7Wf1NMJtui+KSWPYpc3joRZqIYj0kL5w0IT2S9tPQwCFerWVfhkvRkSGJ4nZ/g==}
+  /@aws-sdk/token-providers@3.362.0:
+    resolution: {integrity: sha512-w7NTeB2j1CRdvDa7m08KQr12HN6qrOknXhGEMmf67bfdfAdmPWsJXIbxcKH8eze+acOzoimbqv8KyCVmyX/pCQ==}
     engines: {node: '>=14.0.0'}
     dependencies:
-      '@aws-sdk/client-sso-oidc': 3.360.0
+      '@aws-sdk/client-sso-oidc': 3.362.0
       '@aws-sdk/property-provider': 3.357.0
       '@aws-sdk/shared-ini-file-loader': 3.357.0
       '@aws-sdk/types': 3.357.0
@@ -719,8 +719,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@aws-sdk/util-retry@3.357.0:
-    resolution: {integrity: sha512-SUqYJE9msbuOVq+vnUy+t0LH7XuYNFz66dSF8q6tedsbJK4j8tgya0I1Ct3m06ynGrXDJMaj39I7AXCyW9bjtw==}
+  /@aws-sdk/util-retry@3.362.0:
+    resolution: {integrity: sha512-LDRGKaF2EMcFEa6AlS+ilLiDEeHWyR5FN2+RHdfGQjcqn+Zdd5H6Vc0vUF5Z4PH3hXr5LPZcDh+zM7DlG22KJg==}
     engines: {node: '>= 14.0.0'}
     dependencies:
       '@aws-sdk/service-error-classification': 3.357.0
@@ -906,7 +906,7 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@puppeteer/browsers@1.4.2(typescript@5.1.3):
+  /@puppeteer/browsers@1.4.2(typescript@5.1.5):
     resolution: {integrity: sha512-5MLU1RFaJh1Beb9FH6raowtZErcsZ0ojYJvdG3OWXfnc3wZiDAa0PgXU2QOKtbW2S+Z731K/2n3YczGA3KbLbQ==}
     engines: {node: '>=16.3.0'}
     hasBin: true
@@ -921,7 +921,7 @@ packages:
       progress: 2.0.3
       proxy-agent: 6.2.1
       tar-fs: 3.0.2
-      typescript: 5.1.3
+      typescript: 5.1.5
       unbzip2-stream: 1.4.3
       yargs: 17.7.1
     transitivePeerDependencies:
@@ -1046,7 +1046,7 @@ packages:
     dev: false
     optional: true
 
-  /@typescript-eslint/eslint-plugin@5.59.0(@typescript-eslint/parser@5.59.0)(eslint@8.38.0)(typescript@5.1.3):
+  /@typescript-eslint/eslint-plugin@5.59.0(@typescript-eslint/parser@5.59.0)(eslint@8.38.0)(typescript@5.1.5):
     resolution: {integrity: sha512-p0QgrEyrxAWBecR56gyn3wkG15TJdI//eetInP3zYRewDh0XS+DhB3VUAd3QqvziFsfaQIoIuZMxZRB7vXYaYw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1058,23 +1058,23 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.5.0
-      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       '@typescript-eslint/scope-manager': 5.59.0
-      '@typescript-eslint/type-utils': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
-      '@typescript-eslint/utils': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/type-utils': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
+      '@typescript-eslint/utils': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       debug: 4.3.4
       eslint: 8.38.0
       grapheme-splitter: 1.0.4
       ignore: 5.2.4
       natural-compare-lite: 1.4.0
       semver: 7.5.0
-      tsutils: 3.21.0(typescript@5.1.3)
-      typescript: 5.1.3
+      tsutils: 3.21.0(typescript@5.1.5)
+      typescript: 5.1.5
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@typescript-eslint/parser@5.59.0(eslint@8.38.0)(typescript@5.1.3):
+  /@typescript-eslint/parser@5.59.0(eslint@8.38.0)(typescript@5.1.5):
     resolution: {integrity: sha512-qK9TZ70eJtjojSUMrrEwA9ZDQ4N0e/AuoOIgXuNBorXYcBDk397D2r5MIe1B3cok/oCtdNC5j+lUUpVB+Dpb+w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1086,10 +1086,10 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 5.59.0
       '@typescript-eslint/types': 5.59.0
-      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.3)
+      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.5)
       debug: 4.3.4
       eslint: 8.38.0
-      typescript: 5.1.3
+      typescript: 5.1.5
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1102,7 +1102,7 @@ packages:
       '@typescript-eslint/visitor-keys': 5.59.0
     dev: false
 
-  /@typescript-eslint/type-utils@5.59.0(eslint@8.38.0)(typescript@5.1.3):
+  /@typescript-eslint/type-utils@5.59.0(eslint@8.38.0)(typescript@5.1.5):
     resolution: {integrity: sha512-d/B6VSWnZwu70kcKQSCqjcXpVH+7ABKH8P1KNn4K7j5PXXuycZTPXF44Nui0TEm6rbWGi8kc78xRgOC4n7xFgA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1112,12 +1112,12 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.3)
-      '@typescript-eslint/utils': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.5)
+      '@typescript-eslint/utils': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       debug: 4.3.4
       eslint: 8.38.0
-      tsutils: 3.21.0(typescript@5.1.3)
-      typescript: 5.1.3
+      tsutils: 3.21.0(typescript@5.1.5)
+      typescript: 5.1.5
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1127,7 +1127,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-  /@typescript-eslint/typescript-estree@5.59.0(typescript@5.1.3):
+  /@typescript-eslint/typescript-estree@5.59.0(typescript@5.1.5):
     resolution: {integrity: sha512-sUNnktjmI8DyGzPdZ8dRwW741zopGxltGs/SAPgGL/AAgDpiLsCFLcMNSpbfXfmnNeHmK9h3wGmCkGRGAoUZAg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1142,13 +1142,13 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.5.0
-      tsutils: 3.21.0(typescript@5.1.3)
-      typescript: 5.1.3
+      tsutils: 3.21.0(typescript@5.1.5)
+      typescript: 5.1.5
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@typescript-eslint/utils@5.59.0(eslint@8.38.0)(typescript@5.1.3):
+  /@typescript-eslint/utils@5.59.0(eslint@8.38.0)(typescript@5.1.5):
     resolution: {integrity: sha512-GGLFd+86drlHSvPgN/el6dRQNYYGOvRSDVydsUaQluwIW3HvbXuxyuD5JETvBt/9qGYe+lOrDk6gRrWOHb/FvA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1159,7 +1159,7 @@ packages:
       '@types/semver': 7.3.13
       '@typescript-eslint/scope-manager': 5.59.0
       '@typescript-eslint/types': 5.59.0
-      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.3)
+      '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.1.5)
       eslint: 8.38.0
       eslint-scope: 5.1.1
       semver: 7.5.0
@@ -1209,7 +1209,7 @@ packages:
       openapi-request-validator: 12.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      typescript: 5.1.3
+      typescript: 5.1.5
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -1893,8 +1893,8 @@ packages:
     resolution: {integrity: sha512-AfF0c/DB3/PVlxqR6apOCkh0/wFggtCI7LS3C7Pjp0KNm61/FClUQBGzuo3/66c27slzl6Ex3JiPoLFImVRrMQ==}
     requiresBuild: true
     dependencies:
-      '@typescript-eslint/eslint-plugin': 5.59.0(@typescript-eslint/parser@5.59.0)(eslint@8.38.0)(typescript@5.1.3)
-      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/eslint-plugin': 5.59.0(@typescript-eslint/parser@5.59.0)(eslint@8.38.0)(typescript@5.1.5)
+      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       eslint: 8.38.0
       eslint-config-prettier: 8.8.0(eslint@8.38.0)
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.59.0)(eslint-plugin-import@2.27.5)(eslint@8.38.0)
@@ -1905,7 +1905,7 @@ packages:
       eslint-plugin-react-hooks: 4.6.0(eslint@8.38.0)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.38.0)
       prettier: 2.8.7
-      typescript: 5.1.3
+      typescript: 5.1.5
     transitivePeerDependencies:
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
@@ -1976,7 +1976,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       debug: 3.2.7
       eslint: 8.38.0
       eslint-import-resolver-node: 0.3.7
@@ -1995,7 +1995,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.3)
+      '@typescript-eslint/parser': 5.59.0(eslint@8.38.0)(typescript@5.1.5)
       array-includes: 3.1.6
       array.prototype.flat: 1.3.1
       array.prototype.flatmap: 1.3.1
@@ -3408,7 +3408,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@20.7.3(typescript@5.1.3):
+  /puppeteer-core@20.7.3(typescript@5.1.5):
     resolution: {integrity: sha512-OraI71GPPfUMosLqaOsDGbp/ZLoxLTm0BAda0uE6G+H3onmljfoaJcIPm8X5y1LMq1K1HF1bipcCI7hWGkd3bQ==}
     engines: {node: '>=16.3.0'}
     peerDependencies:
@@ -3417,12 +3417,12 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@puppeteer/browsers': 1.4.2(typescript@5.1.3)
+      '@puppeteer/browsers': 1.4.2(typescript@5.1.5)
       chromium-bidi: 0.4.12(devtools-protocol@0.0.1135028)
       cross-fetch: 3.1.6
       debug: 4.3.4
       devtools-protocol: 0.0.1135028
-      typescript: 5.1.3
+      typescript: 5.1.5
       ws: 8.13.0
     transitivePeerDependencies:
       - bufferutil
@@ -3431,14 +3431,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@20.7.3(typescript@5.1.3):
+  /puppeteer@20.7.3(typescript@5.1.5):
     resolution: {integrity: sha512-3tw12ykFRLvzTRc9PyUOE5xeHQhhLEcKEOVjSfNtRmZqlAnvfhAP8ue+mjojy8NJ1LIfF6fps7OKzSc4JSJSlA==}
     engines: {node: '>=16.3.0'}
     requiresBuild: true
     dependencies:
-      '@puppeteer/browsers': 1.4.2(typescript@5.1.3)
+      '@puppeteer/browsers': 1.4.2(typescript@5.1.5)
       cosmiconfig: 8.2.0
-      puppeteer-core: 20.7.3(typescript@5.1.3)
+      puppeteer-core: 20.7.3(typescript@5.1.5)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -3843,14 +3843,14 @@ packages:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: false
 
-  /tsutils@3.21.0(typescript@5.1.3):
+  /tsutils@3.21.0(typescript@5.1.5):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 5.1.3
+      typescript: 5.1.5
     dev: false
 
   /type-check@0.3.2:
@@ -3880,8 +3880,8 @@ packages:
       is-typed-array: 1.1.10
     dev: false
 
-  /typescript@5.1.3:
-    resolution: {integrity: sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==}
+  /typescript@5.1.5:
+    resolution: {integrity: sha512-FOH+WN/DQjUvN6WgW+c4Ml3yi0PH+a/8q+kNIfRehv1wLhWONedw85iu+vQ39Wp49IzTJEsZ2lyLXpBF7mkF1g==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: false
