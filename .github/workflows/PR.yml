@@ -43,3 +43,9 @@ jobs:
     - name: lint
       run: |
         pnpm lint
+
+    - name: notify analytica of build
+      uses: andreigecanalytica/analytica.click.gh@1
+      with:
+        analyticaToken: '${{ secrets.ANALYTICATOKEN }}'
+        eventName: '${{ github.repository }}/GH/${{ github.job }}/${{ github.event_name }}'
