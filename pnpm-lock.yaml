@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.357.0
     version: 3.357.0
   ag-common:
-    specifier: 0.0.443
-    version: 0.0.443
+    specifier: 0.0.444
+    version: 0.0.444
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -56,8 +56,8 @@ devDependencies:
     specifier: 1.3.31
     version: 1.3.31
   '@types/node':
-    specifier: 20.3.3
-    version: 20.3.3
+    specifier: 20.4.0
+    version: 20.4.0
   '@types/node-fetch':
     specifier: 2.6.4
     version: 2.6.4
@@ -976,19 +976,19 @@ packages:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
       '@types/connect': 3.4.35
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
     dev: false
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
     dev: false
 
   /@types/express-serve-static-core@4.17.33:
     resolution: {integrity: sha512-TPBqmR/HRYI3eC2E5hmiivIzv+bidAfXofM+sbonAGvyDhySGw9/PQZFt2BLOrjUUR++4eJVpx6KnLQK1Fk9tA==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
     dev: false
@@ -1017,7 +1017,7 @@ packages:
   /@types/jsonwebtoken@9.0.1:
     resolution: {integrity: sha512-c5ltxazpWabia/4UzhIoaDcIza4KViOQhdbjRlfcIGVnsE3c3brkz9Z+F/EeJIECOQP7W7US2hNE930cWWkPiw==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
     dev: false
 
   /@types/mime@3.0.1:
@@ -1027,12 +1027,12 @@ packages:
   /@types/node-fetch@2.6.4:
     resolution: {integrity: sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
       form-data: 3.0.1
     dev: true
 
-  /@types/node@20.3.3:
-    resolution: {integrity: sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==}
+  /@types/node@20.4.0:
+    resolution: {integrity: sha512-jfT7iTf/4kOQ9S7CHV9BIyRaQqHu67mOjsIQBC3BKZvzvUB6zLxEwJ6sBE3ozcvP8kF6Uk5PXN0Q+c0dfhGX0g==}
 
   /@types/qs@6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
@@ -1054,7 +1054,7 @@ packages:
     resolution: {integrity: sha512-NUo5XNiAdULrJENtJXZZ3fHtfMolzZwczzBbnAeBbqBwG+LaG6YaJtuwzwGSQZ2wsCrxjEhNNjAkKigy3n8teQ==}
     dependencies:
       '@types/mime': 3.0.1
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
     dev: false
 
   /@types/yargs-parser@21.0.0:
@@ -1071,7 +1071,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.0
     dev: false
     optional: true
 
@@ -1224,8 +1224,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.443:
-    resolution: {integrity: sha512-DYHzKrNdC5hrQsn92dLQG/m0cADshvlvMncom8o8f0VJjpb9saNmVMHqSjSpdKi8XsZ8T+q1GsiPrC7fN3Brag==}
+  /ag-common@0.0.444:
+    resolution: {integrity: sha512-FGg8mNoObizKq5xmfTqr8e+94P1FmA7s2c6YmlsenKZkhQuTtQjQLeKExVeN9abSecwdEViMOdvGekGPEQu5rg==}
     requiresBuild: true
     dependencies:
       aws-cdk-lib: 2.75.0(constructs@10.2.0)
