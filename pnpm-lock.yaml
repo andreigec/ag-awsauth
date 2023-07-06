@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.357.0
     version: 3.357.0
   ag-common:
-    specifier: 0.0.444
-    version: 0.0.444
+    specifier: 0.0.445
+    version: 0.0.445
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -39,8 +39,8 @@ dependencies:
     specifier: 2.6.12
     version: 2.6.12
   puppeteer:
-    specifier: 20.7.4
-    version: 20.7.4(typescript@5.1.6)
+    specifier: 20.8.0
+    version: 20.8.0(typescript@5.1.6)
   readline-sync:
     specifier: 1.4.10
     version: 1.4.10
@@ -1224,8 +1224,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.444:
-    resolution: {integrity: sha512-FGg8mNoObizKq5xmfTqr8e+94P1FmA7s2c6YmlsenKZkhQuTtQjQLeKExVeN9abSecwdEViMOdvGekGPEQu5rg==}
+  /ag-common@0.0.445:
+    resolution: {integrity: sha512-dC7VwRLcNqRlfsrRFxXiOYShMKLe3kb5SvUbjQGc1dnQVgCKxaEJU+45jZ1ug2lg5ZOyHz+BJIdYhijsLHiD2Q==}
     requiresBuild: true
     dependencies:
       aws-cdk-lib: 2.75.0(constructs@10.2.0)
@@ -1640,8 +1640,8 @@ packages:
       path-type: 4.0.0
     dev: false
 
-  /cross-fetch@3.1.6:
-    resolution: {integrity: sha512-riRvo06crlE8HiqOwIpQhxwdOk4fOeR7FVM/wXoxchFEqMNUjvbs3bfo4OTgMEMHzppd4DxFBDbyySj8Cv781g==}
+  /cross-fetch@4.0.0:
+    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
     dependencies:
       node-fetch: 2.6.12
     transitivePeerDependencies:
@@ -3437,8 +3437,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@20.7.4(typescript@5.1.6):
-    resolution: {integrity: sha512-7YZ1LmTo+5yM9uBNFTMJpE+lJjcIoNjKVarsYIk7o5WhgQNI9o5XgiQK5f71y1vWwr7sT/eGG75HXAehjnTBTg==}
+  /puppeteer-core@20.8.0(typescript@5.1.6):
+    resolution: {integrity: sha512-sQcuH6nv9jnFiaaePk53+C0O9BaJP6OaPmYKqJ3sWhziThv6uaaosK49Kg3g1HUUEP9KYhbOhedPIUCXJSQUxw==}
     engines: {node: '>=16.3.0'}
     peerDependencies:
       typescript: '>= 4.7.4'
@@ -3448,7 +3448,7 @@ packages:
     dependencies:
       '@puppeteer/browsers': 1.4.3(typescript@5.1.6)
       chromium-bidi: 0.4.16(devtools-protocol@0.0.1135028)
-      cross-fetch: 3.1.6
+      cross-fetch: 4.0.0
       debug: 4.3.4
       devtools-protocol: 0.0.1135028
       typescript: 5.1.6
@@ -3460,14 +3460,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@20.7.4(typescript@5.1.6):
-    resolution: {integrity: sha512-4JLZeRLXQAjQwWa6yv8cpjEgVapgrvDjBBcI/UCJ+EM6na6aR7hQFnQV4ffjFlUKPpvB2Y1vztVqOEhjfC+yUQ==}
+  /puppeteer@20.8.0(typescript@5.1.6):
+    resolution: {integrity: sha512-DnTwtQMUzWGkJYN3rvUW8y2LciFMnM0YR9cgwWmYmMLhUnYQw1XX+Q+5cAO8+AADglVuJCz0kaopd0lMI5j04g==}
     engines: {node: '>=16.3.0'}
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 1.4.3(typescript@5.1.6)
       cosmiconfig: 8.2.0
-      puppeteer-core: 20.7.4(typescript@5.1.6)
+      puppeteer-core: 20.8.0(typescript@5.1.6)
     transitivePeerDependencies:
       - bufferutil
       - encoding
