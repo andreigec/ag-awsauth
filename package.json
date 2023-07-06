@@ -5,7 +5,7 @@
   "author": "andrei gec (andreigec@hotmail.com)",
   "license": "ISC",
   "private": false,
-  "version": "0.0.80",
+  "version": "0.0.81",
   "preferGlobal": true,
   "scripts": {
     "format": "eslint --ext .ts,.tsx ./src --fix",
