@@ -69,7 +69,6 @@ jobs:
         package: package.json
 
     - name: notify analytica of build
-      uses: andreigecanalytica/analytica.click.gh@1
+      uses: andreigecanalytica/analytica.click.gh@2
       with:
-        analyticaToken: '${{ secrets.ANALYTICATOKEN }}'
-        eventName: '${{ github.repository }}/GH/${{ github.job }}/${{ github.event_name }}'
+        ANALYTICA_TOKEN: '${{ secrets.ANALYTICATOKEN }}'
