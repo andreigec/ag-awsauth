@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.450
-    version: 0.0.450
+    specifier: 0.0.451
+    version: 0.0.451
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -1254,8 +1254,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.450:
-    resolution: {integrity: sha512-jl7020zWVKVxe8Pe81hGmgSsNmt7/Qk1wKVXY448J6Wgtj5mOylKLtYXdx72Bu5dwIL1rLGyiwxfYkhLMFPORA==}
+  /ag-common@0.0.451:
+    resolution: {integrity: sha512-ncIDoYORKnrNZ0ZU+gcW2+BRLtmO9qUaB78xJHGcDV6V9LilQNv/AfKhSIu64WjR9Xsm0s95XKXIhS4o9y6LRA==}
     requiresBuild: true
     dependencies:
       aws-cdk-lib: 2.75.0(constructs@10.2.0)
