@@ -30,6 +30,7 @@ import {
   tryExistingCredentials,
 } from './helpers/sso';
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
+import { getVersion } from './helpers/version';
 import { IApplicationArgs } from './types';
 
 if (__dirname.endsWith('dist')) {
@@ -41,6 +42,7 @@ if (__dirname.endsWith('dist')) {
 config({ path: basePath + '/.env' });
 
 export let globalargs: IApplicationArgs | undefined;
+
 export async function main(args: IApplicationArgs) {
   globalargs = args;
   SetLogLevel(args.verbose ? 'TRACE' : 'WARN');
@@ -55,16 +57,7 @@ export async function main(args: IApplicationArgs) {
   });
 
   if (args.version) {
-    let pjpath = '../package.json';
-    if (!fs.existsSync(pjpath)) {
-      pjpath = '../../package.json';
-    }
-    if (!fs.existsSync(pjpath)) {
-      throw new Error('package json cant be found');
-    }
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const p = require(pjpath);
-    warn('version=' + p.version);
+    warn('version=' + getVersion());
     return;
   }
 

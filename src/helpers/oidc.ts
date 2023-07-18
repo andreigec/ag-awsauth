@@ -11,12 +11,14 @@ import { identityCenterRegion } from '../config';
 import { IAwsCreds } from '../types';
 import { getMFA } from './browser';
 import { enterCreds } from './input';
+import { validateVersion } from './version';
 
 export async function requestMFA(p: {
   identityCenterRegion: string;
   ssoStartUrl: string;
 }): Promise<IAwsCreds> {
   const sso_oidc = new SSOOIDCClient({ region: p.identityCenterRegion });
+  await validateVersion();
   warn('starting MFA flow');
   const creds = enterCreds();
   const rcc = await sso_oidc.send(
