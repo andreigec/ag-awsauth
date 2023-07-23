@@ -69,6 +69,7 @@ jobs:
         package: package.json
 
     - name: notify analytica of build
-      uses: andreigecanalytica/analytica.click.gh@2
+      if: always()
+      uses: andreigecanalytica/analytica.click.gh@v2
       with:
         ANALYTICA_TOKEN: '${{ secrets.ANALYTICATOKEN }}'
