@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.455
-    version: 0.0.455
+    specifier: 0.0.457
+    version: 0.0.457
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -30,8 +30,8 @@ dependencies:
     specifier: 6.18.0
     version: 6.18.0
   eslint-config-e7npm:
-    specifier: 0.0.12
-    version: 0.0.12
+    specifier: 0.0.13
+    version: 0.0.13
   ini:
     specifier: 4.1.1
     version: 4.1.1
@@ -1257,8 +1257,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.455:
-    resolution: {integrity: sha512-0kC8Jj0g47jU2HZTONrzWJfXXRCl6PJRgwuugHjIwHKBuvazmNVXVlF04aumR+M6B4k7w0U7jPBQCic/F8Tc5A==}
+  /ag-common@0.0.457:
+    resolution: {integrity: sha512-jNvkWTKat4FbgXaUyDazKpJ+ExTbrtOW35H8YQGZ+paSogIg4+yEP7GDGCKpOBBFc78XSoG4Wnm5weEYEz29Gw==}
     requiresBuild: true
     dependencies:
       aws-cdk-lib: 2.75.0(constructs@10.2.0)
@@ -1949,8 +1949,8 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-e7npm@0.0.12:
-    resolution: {integrity: sha512-ZBFbGoo8JTyND97U1EC23oIScfJPP3CiLDNEpWSWDEH9Bfy5UU5Nzyb83dlM5c1RyssKfk+VET/z0mXoRY+Scw==}
+  /eslint-config-e7npm@0.0.13:
+    resolution: {integrity: sha512-ZTkfJbQinaFy/WLB03w0fUgIfz5krJFVdtvB6zTeLvRgTaalGZsJNh0+5yap/Q1Pqgv1gzSEqcXrUr5mo488Zg==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.1.0(@typescript-eslint/parser@6.1.0)(eslint@8.38.0)(typescript@5.1.6)
