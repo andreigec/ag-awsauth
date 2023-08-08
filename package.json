@@ -27,7 +27,7 @@
     "@aws-sdk/client-sso-oidc": "3.386.0",
     "@aws-sdk/client-sts": "3.386.0",
     "@aws-sdk/shared-ini-file-loader": "3.370.0",
-    "ag-common": "0.0.472",
+    "ag-common": "0.0.474",
     "cli-select": "1.1.2",
     "dotenv": "16.3.1",
     "envfile": "6.18.0",
