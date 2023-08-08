@@ -5,7 +5,7 @@ import { question } from 'readline-sync';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { IAppInstance, IApplicationArgs } from '../types';
+import type { IAppInstance, IApplicationArgs } from '../types';
 
 const valueRenderer = (a: IAppInstance) => `${a.name} [${a.id}]`;
 

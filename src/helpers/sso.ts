@@ -9,7 +9,7 @@ import { fromBase64 } from 'ag-common/dist/common/helpers/string';
 import fetch from 'node-fetch';
 
 import { identityCenterRegion } from '../config';
-import {
+import type {
   IAppInstance,
   IAppInstanceDetails,
   IAppInstances,

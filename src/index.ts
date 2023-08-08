@@ -31,7 +31,7 @@ import {
 } from './helpers/sso';
 import { directStsAssume, getApplicationCreds } from './helpers/sts';
 import { getVersion } from './helpers/version';
-import { IApplicationArgs } from './types';
+import type { IApplicationArgs } from './types';
 
 if (__dirname.endsWith('dist')) {
   setBasePath(path.resolve(__dirname, '../'));

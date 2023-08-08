@@ -1,12 +1,12 @@
 import { debug, error, info, warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
-import {
+import type {
   Browser,
   BrowserConnectOptions,
   BrowserLaunchArgumentOptions,
-  launch,
   LaunchOptions,
 } from 'puppeteer';
+import { launch } from 'puppeteer';
 
 import { globalargs } from '..';
 import { timeoutMs, timeoutShortMs } from '../config';

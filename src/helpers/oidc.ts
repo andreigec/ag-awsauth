@@ -8,7 +8,7 @@ import { warn } from 'ag-common/dist/common/helpers/log';
 import { sleep } from 'ag-common/dist/common/helpers/sleep';
 
 import { identityCenterRegion } from '../config';
-import { IAwsCreds } from '../types';
+import type { IAwsCreds } from '../types';
 import { getMFA } from './browser';
 import { enterCreds } from './input';
 import { validateVersion } from './version';

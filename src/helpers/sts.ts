@@ -2,7 +2,7 @@ import { STS } from '@aws-sdk/client-sts';
 import { error, info, warn } from 'ag-common/dist/common/helpers/log';
 
 import { nativeStsDurationSeconds, stsDurationSeconds } from '../config';
-import { IAwsCreds, SearchMetadata } from '../types';
+import type { IAwsCreds, SearchMetadata } from '../types';
 import { appInstances, getAssumedRole } from './sso';
 
 export async function validateCredentials(

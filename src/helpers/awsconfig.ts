@@ -5,7 +5,7 @@ import { info } from 'ag-common/dist/common/helpers/log';
 import fs from 'fs';
 import { stringify } from 'ini';
 
-import { IAwsCreds, IAwsCredsRaw } from '../types';
+import type { IAwsCreds, IAwsCredsRaw } from '../types';
 
 export const getAwsCredentials = async () => {
   const config = await loadSharedConfigFiles();
