@@ -31,17 +31,17 @@
     "cli-select": "1.1.2",
     "dotenv": "16.3.1",
     "envfile": "6.18.0",
-    "eslint-config-e7npm": "0.0.20",
+    "eslint-config-e7npm": "0.0.21",
     "ini": "4.1.1",
     "node-fetch": "2.6.12",
-    "puppeteer": "21.0.2",
+    "puppeteer": "21.0.3",
     "readline-sync": "1.4.10",
     "typescript": "5.1.6",
     "yargs": "17.7.2"
   },
   "devDependencies": {
     "@types/ini": "1.3.31",
-    "@types/node": "20.4.9",
+    "@types/node": "20.4.10",
     "@types/node-fetch": "2.6.4",
     "@types/readline-sync": "1.4.4",
     "@types/yargs": "17.0.24"
