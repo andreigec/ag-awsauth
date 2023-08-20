@@ -31,7 +31,7 @@
     "cli-select": "1.1.2",
     "dotenv": "16.3.1",
     "envfile": "6.18.0",
-    "eslint-config-e7npm": "0.0.26",
+    "eslint-config-e7npm": "0.0.27",
     "ini": "4.1.1",
     "node-fetch": "2.6.13",
     "puppeteer": "21.1.0",
