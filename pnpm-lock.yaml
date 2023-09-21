@@ -9,8 +9,8 @@ dependencies:
     specifier: 3.414.0
     version: 3.414.0
   '@aws-sdk/client-sso-oidc':
-    specifier: 3.414.0
-    version: 3.414.0
+    specifier: 3.417.0
+    version: 3.417.0
   '@aws-sdk/client-sts':
     specifier: 3.414.0
     version: 3.414.0
@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.504
-    version: 0.0.504
+    specifier: 0.0.505
+    version: 0.0.505
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -400,8 +400,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-sso-oidc@3.414.0:
-    resolution: {integrity: sha512-8dkiIfgdYBXdB2qTlKUGNq0AchlWbQQ8RRiQhnHWWH8b7TlG/dOpYAgZohSZxZ+ai4RiX02rjEAxu0/Cz/f80A==}
+  /@aws-sdk/client-sso-oidc@3.417.0:
+    resolution: {integrity: sha512-HY43sO18UmzOxymNCdc12J+aOQQKVQNGPq+nguJY1QpX4WvPPDoW+X3DROyUk9+33fjPIwDWXRhpYi23J5pIxg==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -2077,8 +2077,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.504:
-    resolution: {integrity: sha512-CK9m1vH/UoWsT75xsnPmLbbTPI0LeEsXacZovK/UCY5antMlYbAq8zdjWJWeH6aYZv/jR+PDTs1i0fAvVQZKeA==}
+  /ag-common@0.0.505:
+    resolution: {integrity: sha512-qdMrjYoYAw8iI6vzfLMVadWZ+RrixTUSRSfFpqUgo/TxGpx0zlBGFyQFs5pVsT9Ku/VwkU3VyekeWFJ41gPnuw==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.379.1
