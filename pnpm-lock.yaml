@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.507
-    version: 0.0.507
+    specifier: 0.0.508
+    version: 0.0.508
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -39,8 +39,8 @@ dependencies:
     specifier: 2.7.0
     version: 2.7.0
   puppeteer:
-    specifier: 21.3.5
-    version: 21.3.5(typescript@5.2.2)
+    specifier: 21.3.6
+    version: 21.3.6(typescript@5.2.2)
   readline-sync:
     specifier: 1.4.10
     version: 1.4.10
@@ -65,8 +65,8 @@ devDependencies:
     specifier: 1.4.5
     version: 1.4.5
   '@types/yargs':
-    specifier: 17.0.25
-    version: 17.0.25
+    specifier: 17.0.26
+    version: 17.0.26
 
 packages:
 
@@ -1925,8 +1925,8 @@ packages:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: true
 
-  /@types/yargs@17.0.25:
-    resolution: {integrity: sha512-gy7iPgwnzNvxgAEi2bXOHWCVOG6f7xsprVJH4MjlAWeBmJ7vh/Y1kwMtUrs64ztf24zVIRCpr3n/z6gm9QIkgg==}
+  /@types/yargs@17.0.26:
+    resolution: {integrity: sha512-Y3vDy2X6zw/ZCumcwLpdhM5L7jmyGpmBCTYMHDLqT2IKVMYRRLdv6ZakA+wxhra6Z/3bwhNbNl9bDGXaFU+6rw==}
     dependencies:
       '@types/yargs-parser': 21.0.0
     dev: true
@@ -2084,8 +2084,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.507:
-    resolution: {integrity: sha512-jo3+HDzPsDerAOEccEvjR6FVX/cMILR7ms9xXBD+yjDqhEZef6mYZ1bX4xyEGKRVYF/YLqBq9loXH9aQuYnh6g==}
+  /ag-common@0.0.508:
+    resolution: {integrity: sha512-hhuWfeChEN2bXv4eEhSjJetAnHw/LvxIYzpkgpk2M9gR+kxruUHGLILeUA+oZmSYl0zxecpoqhfcDNfLnynS1Q==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.379.1
@@ -4272,8 +4272,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@21.3.5:
-    resolution: {integrity: sha512-C/yVgvob/HbUVTedhnURDruFkJYHEqJWlb6YltJGj/T7yzWdG4ouQ0JER8aX5g2RS4DMQ0xMNuhUVYMqC2QfnQ==}
+  /puppeteer-core@21.3.6:
+    resolution: {integrity: sha512-ZH6tjTdRXwW2fx5W3jBbG+yUVQdDfZW1kjfwvWwMzsnKEli5ZwV70Zp97GOebHQHrK8zM3vX5VqI9sd48c9PnQ==}
     engines: {node: '>=16.3.0'}
     dependencies:
       '@puppeteer/browsers': 1.7.1
@@ -4289,14 +4289,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@21.3.5(typescript@5.2.2):
-    resolution: {integrity: sha512-Lff7dgN7D1AHnPBgceZiZpcXVpKOcnSCtBy+TZlwqYBumGapOky3/rUPScd6I6poh5XpPNzya6gbipBasAs7xA==}
+  /puppeteer@21.3.6(typescript@5.2.2):
+    resolution: {integrity: sha512-ulK9+KLvdaVsG0EKbKyw/DCXCz88rsnrvIJg9tY8AmkGR01AxI4ZJTH9BJl1OE7cLfh2vxjBvY+xfvJod6rfgw==}
     engines: {node: '>=16.3.0'}
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 1.7.1
       cosmiconfig: 8.3.6(typescript@5.2.2)
-      puppeteer-core: 21.3.5
+      puppeteer-core: 21.3.6
     transitivePeerDependencies:
       - bufferutil
       - encoding
