@@ -30,8 +30,8 @@ dependencies:
     specifier: 6.18.0
     version: 6.18.0
   eslint-config-e7npm:
-    specifier: 0.0.44
-    version: 0.0.44
+    specifier: 0.0.45
+    version: 0.0.45
   ini:
     specifier: 4.1.1
     version: 4.1.1
@@ -2808,8 +2808,8 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-e7npm@0.0.44:
-    resolution: {integrity: sha512-z7nVuXWEvulL9u9jxOb+BupCi0l/fNaAEAgfI0933mwZhTBrK3GnvSieK3HkaMHYVncSib0zEnJpXdE9UDF0Hg==}
+  /eslint-config-e7npm@0.0.45:
+    resolution: {integrity: sha512-+cNpgFh736O9rYt8zF9mr6wy54Adh0bm2ad5eIYF1LN8DyAxi4gqq1wtc9eC/o9EoSC4jmoHG3mALfcpgx51bg==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
