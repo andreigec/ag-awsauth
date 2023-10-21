@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.529
-    version: 0.0.529
+    specifier: 0.0.530
+    version: 0.0.530
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -2088,8 +2088,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.529:
-    resolution: {integrity: sha512-vJhjQzlGup/mbz6/4XLdShgzzr8e5nNfDPaltpm6zwPhBNxRW7uR+HzUYY+Bv1Z8bkEApi8KpBpckm/OOPKBzg==}
+  /ag-common@0.0.530:
+    resolution: {integrity: sha512-bj2jNp87c+nT3EEbXNUbIjKzMcYm0a0D1BdkN76c/64P2+4FZMmceuhT+zICzqPmiYTf+bnu76gi3yUXV8PMrw==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.379.1
