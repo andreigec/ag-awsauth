@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.561
-    version: 0.0.561
+    specifier: 0.0.562
+    version: 0.0.562
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -39,8 +39,8 @@ dependencies:
     specifier: 2.7.0
     version: 2.7.0
   puppeteer:
-    specifier: 21.5.0
-    version: 21.5.0(typescript@5.2.2)
+    specifier: 21.5.1
+    version: 21.5.1(typescript@5.2.2)
   readline-sync:
     specifier: 1.4.10
     version: 1.4.10
@@ -2118,8 +2118,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.561:
-    resolution: {integrity: sha512-NMrRzJT8rkHsojtpX2QoC1sMuS2BZr54fDBvUFxZodOaNsIP86Zf1kQCzXq+3Y6gKRZRswxBeppiS9E5Zoap3w==}
+  /ag-common@0.0.562:
+    resolution: {integrity: sha512-3J6pwgDIT0coSYWJvvgt9w9RZv32K1mKkFj7S+gkfPb2FAtme0Z+KcWcEa53YmSMNl3i/+YSaRvxOJlzOOyJYA==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.379.1
@@ -4280,8 +4280,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@21.5.0:
-    resolution: {integrity: sha512-qG0RJ6qKgFz09UUZxDB9IcyTJGypQXMuE8WmEoHk7kgjutmRiOVv5RgsyUkY67AxDdBWx21bn1PHHRJnO/6b4A==}
+  /puppeteer-core@21.5.1:
+    resolution: {integrity: sha512-u6c3SZKAOaOQogaTkQvllxT/o2PP16wkbrUWINtMhfvrB4ko+xwqC1pb+vyCPMmNUh3N/CX5YGqb3DWx2fUPSQ==}
     engines: {node: '>=16.3.0'}
     dependencies:
       '@puppeteer/browsers': 1.8.0
@@ -4297,14 +4297,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@21.5.0(typescript@5.2.2):
-    resolution: {integrity: sha512-prvy9rdauyIaaEgefQRcw9zhQnYQbl8O1Gj5VJazKJ7kwNx703+Paw/1bwA+b96jj/S+r55hrmF5SfiEG5PUcg==}
+  /puppeteer@21.5.1(typescript@5.2.2):
+    resolution: {integrity: sha512-NkI06BXckVZeZUkODK+BbgGelQSu7uYEp9PaJDozxpwNRFDYoVfHQvd2G4dERoLdP6+qx4EBPwEhk4dEkQc2Kg==}
     engines: {node: '>=16.3.0'}
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 1.8.0
       cosmiconfig: 8.3.6(typescript@5.2.2)
-      puppeteer-core: 21.5.0
+      puppeteer-core: 21.5.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
