@@ -30,7 +30,7 @@
     "ag-common": "0.0.566",
     "cli-select": "1.1.2",
     "dotenv": "16.3.1",
-    "envfile": "6.20.0",
+    "envfile": "6.21.0",
     "eslint-config-e7npm": "0.0.56",
     "ini": "4.1.1",
     "node-fetch": "2.7.0",
