@@ -27,8 +27,8 @@ dependencies:
     specifier: 16.3.1
     version: 16.3.1
   envfile:
-    specifier: 6.22.0
-    version: 6.22.0
+    specifier: 7.0.0
+    version: 7.0.0
   eslint-config-e7npm:
     specifier: 0.0.56
     version: 0.0.56
@@ -2710,9 +2710,9 @@ packages:
       tapable: 2.2.1
     dev: false
 
-  /envfile@6.22.0:
-    resolution: {integrity: sha512-G9vwmk9O+eJzHh6JEfva0aTmyKtbolqGx9l/KnEVslsR3hl5XZ+g+wgY/j8gTJoikgP5upt6wxXM+E19o36iUg==}
-    engines: {node: '>=10'}
+  /envfile@7.0.0:
+    resolution: {integrity: sha512-q6GTPMuGokB1Kz72+1mj8/O+sZQUhoae3JcAGEVJdN7Y/o2zv/PjLzbVdB+nsUBjIXLgRUb2W3hDKDJOPvtpMQ==}
+    engines: {node: '>=8'}
     hasBin: true
     dev: false
 
