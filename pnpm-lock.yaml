@@ -9,11 +9,11 @@ dependencies:
     specifier: 3.470.0
     version: 3.470.0
   '@aws-sdk/client-sso-oidc':
-    specifier: 3.470.0
-    version: 3.470.0
+    specifier: 3.473.0
+    version: 3.473.0
   '@aws-sdk/client-sts':
-    specifier: 3.470.0
-    version: 3.470.0
+    specifier: 3.473.0
+    version: 3.473.0
   '@aws-sdk/shared-ini-file-loader':
     specifier: 3.370.0
     version: 3.370.0
@@ -39,8 +39,8 @@ dependencies:
     specifier: 2.7.0
     version: 2.7.0
   puppeteer:
-    specifier: 21.6.0
-    version: 21.6.0(typescript@5.3.3)
+    specifier: 21.6.1
+    version: 21.6.1(typescript@5.3.3)
   readline-sync:
     specifier: 1.4.10
     version: 1.4.10
@@ -369,13 +369,13 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-sso-oidc@3.470.0:
-    resolution: {integrity: sha512-R+qFf5meYxb8W6vDOITDS+3pSNMCEXUKwOUhW+8wBiJIS3c0OBfcRAafgUvzQD1kmgUiZCo67GoJZiwRgOyZhQ==}
+  /@aws-sdk/client-sso-oidc@3.473.0:
+    resolution: {integrity: sha512-gWA1pHPgkXEuHtyr05+s6lmqiWK2BqIKxlAv5R/0EQOrMYaBy9OFr69kxNBRYC2zN/3ESgqsMmTxTr7wgqfcNg==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
       '@aws-crypto/sha256-js': 3.0.0
-      '@aws-sdk/client-sts': 3.470.0
+      '@aws-sdk/client-sts': 3.473.0
       '@aws-sdk/core': 3.468.0
       '@aws-sdk/credential-provider-node': 3.470.0
       '@aws-sdk/middleware-host-header': 3.468.0
@@ -552,8 +552,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@aws-sdk/client-sts@3.470.0:
-    resolution: {integrity: sha512-TP3A4t8FoFEQinm6axxduTUnlMMLpmLi4Sf00JTI2CszxLUFh/JyUhYQ5gSOoXgPFmfwVXUNKCtmR3jdP0ZGPw==}
+  /@aws-sdk/client-sts@3.473.0:
+    resolution: {integrity: sha512-ttRZs+sW96cpuoVdys4KZ81yXq4c6xyhGOZIRUpi/YiwB1gnNvCEo5CDFL7PSdW/bjI2ovyUgu8EArq+7KlLwA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -2148,7 +2148,7 @@ packages:
       '@aws-sdk/client-s3': 3.449.0
       '@aws-sdk/client-ses': 3.449.0
       '@aws-sdk/client-sqs': 3.449.0
-      '@aws-sdk/client-sts': 3.470.0
+      '@aws-sdk/client-sts': 3.473.0
       '@aws-sdk/lib-dynamodb': 3.449.0(@aws-sdk/client-dynamodb@3.449.0)
       '@aws-sdk/s3-presigned-post': 3.449.0
       '@aws-sdk/util-dynamodb': 3.449.0(@aws-sdk/client-dynamodb@3.449.0)
@@ -4301,8 +4301,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@21.6.0:
-    resolution: {integrity: sha512-1vrzbp2E1JpBwtIIrriWkN+A0afUxkqRuFTC3uASc5ql6iuK9ppOdIU/CPGKwOyB4YFIQ16mRbK0PK19mbXnaQ==}
+  /puppeteer-core@21.6.1:
+    resolution: {integrity: sha512-0chaaK/RL9S1U3bsyR4fUeUfoj51vNnjWvXgG6DcsyMjwYNpLcAThv187i1rZCo7QhJP0wZN8plQkjNyrq2h+A==}
     engines: {node: '>=16.13.2'}
     dependencies:
       '@puppeteer/browsers': 1.9.0
@@ -4310,7 +4310,7 @@ packages:
       cross-fetch: 4.0.0
       debug: 4.3.4
       devtools-protocol: 0.0.1203626
-      ws: 8.14.2
+      ws: 8.15.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -4318,15 +4318,15 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@21.6.0(typescript@5.3.3):
-    resolution: {integrity: sha512-u6JhSF7xaPYZ2gd3tvhYI8MwVAjLc3Cazj7UWvMV95A07/y7cIjBwYUiMU9/jm4z0FSUORriLX/RZRaiASNWPw==}
+  /puppeteer@21.6.1(typescript@5.3.3):
+    resolution: {integrity: sha512-O+pbc61oj8ln6m8EJKncrsQFmytgRyFYERtk190PeLbJn5JKpmmynn2p1PiFrlhCitAQXLJ0MOy7F0TeyCRqBg==}
     engines: {node: '>=16.13.2'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 1.9.0
       cosmiconfig: 8.3.6(typescript@5.3.3)
-      puppeteer-core: 21.6.0
+      puppeteer-core: 21.6.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -4905,8 +4905,8 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: false
 
-  /ws@8.14.2:
-    resolution: {integrity: sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==}
+  /ws@8.15.1:
+    resolution: {integrity: sha512-W5OZiCjXEmk0yZ66ZN82beM5Sz7l7coYxpRkzS+p9PP+ToQry8szKh+61eNktr7EA9DOwvFGhfC605jDHbP6QQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
