@@ -30,8 +30,8 @@ dependencies:
     specifier: 7.0.0
     version: 7.0.0
   eslint-config-e7npm:
-    specifier: 0.0.67
-    version: 0.0.67
+    specifier: 0.0.68
+    version: 0.0.68
   ini:
     specifier: 4.1.1
     version: 4.1.1
@@ -2848,8 +2848,8 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-e7npm@0.0.67:
-    resolution: {integrity: sha512-lsr3DUY9Jgosgd5tlnqgHLdJF3V7stxIN/UM1laXalDnCjgFhRxABiniUdle+riO6hhUmRw/umTVURxB6JICtw==}
+  /eslint-config-e7npm@0.0.68:
+    resolution: {integrity: sha512-DaHCr+bvLTrQiUVYfpWd3/kqPm+UiX0xxuCxyCzl9y5nFTAPIqXS5VAEe77tgTT00tAsyvbwNLQ00D6jkHXEWw==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.15.0(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -2859,7 +2859,7 @@ packages:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.15.0)(eslint-plugin-import@2.29.1)(eslint@8.56.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.15.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.56.0)
-      eslint-plugin-prettier: 5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+      eslint-plugin-prettier: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.56.0)
@@ -3005,8 +3005,8 @@ packages:
       object.fromentries: 2.0.7
     dev: false
 
-  /eslint-plugin-prettier@5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
-    resolution: {integrity: sha512-hQc+2zbnMeXcIkg+pKZtVa+3Yqx4WY7SMkn1PLZ4VbBEU7jJIpVn9347P8BBhTbz6ne85aXvQf30kvexcqBeWw==}
+  /eslint-plugin-prettier@5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+    resolution: {integrity: sha512-WQpV3mSmIobb77s4qiCZu3dBrZZ0rj8ckSfBtRrgNK9Wnh2s3eiaxNTWloz1LJ1WtvqZES/PAI7PLvsrGt/CEA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
