@@ -86,6 +86,17 @@ export async function getMFA(p: {
   //go to browser site for auth
   info('start mfa');
   const page = await goToPage(p.verificationUriComplete);
+  //
+  info('checking for auth request');
+  const verif = await page.waitForSelector('#cli_verification_btn', {
+    timeout: timeoutShortMs,
+  });
+
+  if (verif) {
+    info('clicking auth request button');
+    await verif.click();
+  }
+  //
   info('username block');
   await page.waitForSelector('#username-input', { timeout: timeoutMs });
   await page.focus('#username-input input');
