@@ -23,14 +23,14 @@
     "LICENSE.md"
   ],
   "dependencies": {
-    "@aws-sdk/client-sso": "3.481.0",
-    "@aws-sdk/client-sso-oidc": "3.481.0",
-    "@aws-sdk/client-sts": "3.481.0",
+    "@aws-sdk/client-sso": "3.484.0",
+    "@aws-sdk/client-sso-oidc": "3.484.0",
+    "@aws-sdk/client-sts": "3.484.0",
     "@aws-sdk/shared-ini-file-loader": "3.370.0",
     "ag-common": "0.0.579",
     "cli-select": "1.1.2",
     "dotenv": "16.3.1",
-    "envfile": "7.0.0",
+    "envfile": "7.1.0",
     "eslint-config-e7npm": "0.0.70",
     "ini": "4.1.1",
     "node-fetch": "2.7.0",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/ini": "4.1.0",
-    "@types/node": "20.10.5",
+    "@types/node": "20.10.6",
     "@types/node-fetch": "2.6.10",
     "@types/readline-sync": "1.4.8",
     "@types/yargs": "17.0.32"
