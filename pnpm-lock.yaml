@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.583
-    version: 0.0.583
+    specifier: 0.0.584
+    version: 0.0.584
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -30,8 +30,8 @@ dependencies:
     specifier: 7.1.0
     version: 7.1.0
   eslint-config-e7npm:
-    specifier: 0.0.73
-    version: 0.0.73
+    specifier: 0.0.74
+    version: 0.0.74
   ini:
     specifier: 4.1.1
     version: 4.1.1
@@ -2155,8 +2155,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.583:
-    resolution: {integrity: sha512-9vuPmXLLq0CimNDzq4aa92GCw2hfHF2l2hY6Iz1iHFTI8FQh+goDZeffl7poEgeC9K12Zj6Vx4b20sh9KgJ0cg==}
+  /ag-common@0.0.584:
+    resolution: {integrity: sha512-s4L7bFgtPl2ZO6RAbBIJs7AeXQXY32erwIoPeNKoiDd6ej5E5XjIir5FoiNFsKW7ZKyVA71cB8+2mFY5bd6rmw==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.449.0
@@ -2896,8 +2896,8 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-e7npm@0.0.73:
-    resolution: {integrity: sha512-4nlvC7WX0KE8MXT7AmubMOxAgn8A9XrAsvpjBcMOXbba+MQXWMC5tZtVRY+KVzY3L3iAjbA/5y5ePYTPGtgEew==}
+  /eslint-config-e7npm@0.0.74:
+    resolution: {integrity: sha512-+G0PcKNXLRyyotrh5pFysJJoZ9MVFurN4cjQ3QtJ2gFDlkXW3b0zXT9tYzETM+0BpwtHRpaZH7sgIoXMB9xm/g==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.18.1(@typescript-eslint/parser@6.18.1)(eslint@8.56.0)(typescript@5.3.3)
@@ -2907,12 +2907,12 @@ packages:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.18.1)(eslint-plugin-import@2.29.1)(eslint@8.56.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.18.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.56.0)
-      eslint-plugin-prettier: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+      eslint-plugin-prettier: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.1)
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
       eslint-plugin-simple-import-sort: 10.0.0(eslint@8.56.0)
       eslint-utils: 3.0.0(eslint@8.56.0)
-      prettier: 3.1.1
+      prettier: 3.2.1
       typescript: 5.3.3
     transitivePeerDependencies:
       - '@types/eslint'
@@ -3053,7 +3053,7 @@ packages:
       object.fromentries: 2.0.7
     dev: false
 
-  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.1):
     resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -3069,7 +3069,7 @@ packages:
     dependencies:
       eslint: 8.56.0
       eslint-config-prettier: 9.1.0(eslint@8.56.0)
-      prettier: 3.1.1
+      prettier: 3.2.1
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.6
     dev: false
@@ -4420,8 +4420,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier@3.1.1:
-    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
+  /prettier@3.2.1:
+    resolution: {integrity: sha512-qSUWshj1IobVbKc226Gw2pync27t0Kf0EdufZa9j7uBSJay1CC+B3K5lAAZoqgX3ASiKuWsk6OmzKRetXNObWg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
