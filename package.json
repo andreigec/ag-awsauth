@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "@types/ini": "4.1.0",
-    "@types/node": "20.11.4",
-    "@types/node-fetch": "2.6.10",
+    "@types/node": "20.11.5",
+    "@types/node-fetch": "2.6.11",
     "@types/readline-sync": "1.4.8",
     "@types/yargs": "17.0.32"
   },
