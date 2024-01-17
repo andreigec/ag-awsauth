@@ -50,7 +50,7 @@ export const getAssumedRole = async (p: {
         accountId: r.accountId || '',
         roleName: r.roleName || '',
       }))
-      ?.filter((r) => r.accountId && r.roleName) || [];
+      ?.filter((r) => r.accountId && r.roleName) ?? [];
 
   if (roles.length === 0) {
     throw new Error('no roles can be assumed');
@@ -109,7 +109,7 @@ export async function appInstances(p: { ssoAuthn: string }) {
     throw new Error('appinstance error' + JSON.stringify(ai, null, 2));
   }
 
-  return ai.result;
+  return ai.result.sort((a, b) => (a.name < b.name ? -1 : 1));
 }
 
 export async function getSamlAssertion(

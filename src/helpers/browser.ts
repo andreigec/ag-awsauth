@@ -145,8 +145,10 @@ export async function getMFA(p: {
   do {
     info('mfa block');
     const { mfa } = enterMFA();
-    await page.waitForSelector('#input-0', { timeout: timeoutMs });
-    await page.focus('#input-0 input');
+    await page.waitForSelector('.awsui-input-type-text', {
+      timeout: timeoutMs,
+    });
+    await page.focus('.awsui-input-type-text');
     await page.keyboard.type(mfa);
     await page.$eval('.awsui-signin-button-container button', (el) =>
       (el as HTMLButtonElement).click(),
