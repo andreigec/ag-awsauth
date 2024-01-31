@@ -31,7 +31,7 @@
     "cli-select": "1.1.2",
     "dotenv": "16.4.1",
     "envfile": "7.1.0",
-    "eslint-config-e7npm": "0.0.78",
+    "eslint-config-e7npm": "0.0.79",
     "ini": "4.1.1",
     "node-fetch": "2.7.0",
     "puppeteer": "21.10.0",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/ini": "4.1.0",
-    "@types/node": "20.11.10",
+    "@types/node": "20.11.13",
     "@types/node-fetch": "2.6.11",
     "@types/readline-sync": "1.4.8",
     "@types/yargs": "17.0.32"
