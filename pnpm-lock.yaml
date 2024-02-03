@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.370.0
     version: 3.370.0
   ag-common:
-    specifier: 0.0.609
-    version: 0.0.609(@aws-sdk/credential-provider-node@3.504.0)
+    specifier: 0.0.610
+    version: 0.0.610(@aws-sdk/credential-provider-node@3.504.0)
   cli-select:
     specifier: 1.1.2
     version: 1.1.2
@@ -2152,8 +2152,8 @@ packages:
     hasBin: true
     dev: false
 
-  /ag-common@0.0.609(@aws-sdk/credential-provider-node@3.504.0):
-    resolution: {integrity: sha512-hInWOea9rWb9BJOwMER1KHdylTFtscWc78h+vYNLYZBUzo81GCht6/DcJCpF8uVdjB5KNyuqgjd4Say6dslg3A==}
+  /ag-common@0.0.610(@aws-sdk/credential-provider-node@3.504.0):
+    resolution: {integrity: sha512-XKFyFgDGBuO0lvklTJ4DwT279n2R/J3KEcaExM2SlDJ1da1TnzQc950fOMRzvrDvZG6JJWRW4ALPglUnCGt04g==}
     requiresBuild: true
     dependencies:
       '@aws-sdk/client-dynamodb': 3.449.0
