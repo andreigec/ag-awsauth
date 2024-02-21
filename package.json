@@ -8,8 +8,10 @@
   "version": "0.0.244",
   "preferGlobal": true,
   "scripts": {
-    "format": "eslint --ext .ts,.tsx ./src --fix",
-    "lint": "tsc && eslint --ext .ts,.tsx ./src",
+    "format": "eslint --ext .ts,.tsx,.js,.json src --fix",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint --ext .ts,.tsx,.js,.json src",
+    "lint": "pnpm run /^lint:/",
     "start": "tsc && node bin/awsauth.js",
     "build": "tsc"
   },
