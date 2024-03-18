@@ -119,6 +119,7 @@ export async function getMFA(p: {
   //
 
   try {
+    info('wait optional alert message');
     const messageDiv = await page.waitForSelector('.awsui-alert-message', {
       timeout: timeoutShortMs,
     });
@@ -187,11 +188,11 @@ export async function getMFA(p: {
   await sleep(timeoutShortMs);
   await page.waitForNetworkIdle({ idleTime: 250 });
   info('waiting for sign in button');
-  await page.waitForSelector('.awsui-signin-button', {
+  await page.waitForSelector('#cli_login_button', {
     timeout: timeoutShortMs,
   });
   info('pressing sign in');
-  await page.$eval('.awsui-signin-button', (el) =>
+  await page.$eval('#cli_login_button', (el) =>
     (el as HTMLButtonElement).click(),
   );
 
@@ -203,7 +204,7 @@ export async function getMFA(p: {
     //
   }
   info('waiting for success');
-  await page.waitForSelector('.awsui-icon-variant-success', {
+  await page.waitForSelector('[data-analytics-alert="success"]', {
     timeout: timeoutMs,
   });
   warn('mfa success');
