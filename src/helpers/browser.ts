@@ -183,26 +183,34 @@ export async function getMFA(p: {
         retry = false;
       }
     }
+
+    try {
+      info('wait for access prompt');
+
+      const messageDiv = await page.waitForSelector(
+        '[data-testid="allow-access-button"]',
+        {
+          timeout: timeoutShortMs,
+        },
+      );
+      if (messageDiv) {
+        info('click access prompt');
+        await messageDiv.click();
+      } else {
+        throw new Error('access prompt not found');
+      }
+    } catch (e) {
+      const em = (e as Error).toString();
+      if (!em.includes('exceeded')) {
+        const em2 = `mfa error:` + em + ' retry';
+        error(em2);
+      } else {
+        retry = false;
+      }
+    }
   } while (retry);
   //
-  await sleep(timeoutShortMs);
-  await page.waitForNetworkIdle({ idleTime: 250 });
-  info('waiting for sign in button');
-  await page.waitForSelector('#cli_login_button', {
-    timeout: timeoutShortMs,
-  });
-  info('pressing sign in');
-  await page.$eval('#cli_login_button', (el) =>
-    (el as HTMLButtonElement).click(),
-  );
 
-  info('waiting for completion');
-  await sleep(250);
-  try {
-    await page.waitForNetworkIdle({ idleTime: 250, timeout: timeoutShortMs });
-  } catch (e) {
-    //
-  }
   info('waiting for success');
   await page.waitForSelector('[data-analytics-alert="success"]', {
     timeout: timeoutMs,
