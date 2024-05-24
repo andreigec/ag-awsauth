@@ -36,7 +36,7 @@
     "eslint-config-e7npm": "0.0.81",
     "ini": "4.1.1",
     "node-fetch": "2.7.0",
-    "puppeteer": "21.11.0",
+    "puppeteer": "22.10.0",
     "readline-sync": "1.4.10",
     "typescript": "5.3.3",
     "yargs": "17.7.2"
