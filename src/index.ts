@@ -83,11 +83,11 @@ export async function main(args: IApplicationArgs) {
 
   let credentials = await tryExistingCredentials();
 
-  if (!credentials?.accessToken || !credentials?.ssoAuthn) {
+  if (!credentials?.accessToken || !credentials.ssoAuthn) {
     info('no creds, get access token through manual sign in');
     credentials = await requestMFA({
-      identityCenterRegion: identityCenterRegion,
-      ssoStartUrl: ssoStartUrl,
+      identityCenterRegion,
+      ssoStartUrl,
     });
     info('get oidc creds');
     credentials = await getOIDCCredentialsFromAccessToken(credentials);

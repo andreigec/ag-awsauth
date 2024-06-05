@@ -50,7 +50,7 @@ export const getAssumedRole = async (p: {
         accountId: r.accountId || '',
         roleName: r.roleName || '',
       }))
-      ?.filter((r) => r.accountId && r.roleName) ?? [];
+      .filter((r) => r.accountId && r.roleName) ?? [];
 
   if (roles.length === 0) {
     throw new Error('no roles can be assumed');
@@ -81,9 +81,9 @@ export const getOIDCCredentialsFromAccessToken = async (p: {
   const rc = ssoResp.roleCredentials;
   if (
     !rc?.accessKeyId ||
-    !rc?.expiration ||
-    !rc?.secretAccessKey ||
-    !rc?.sessionToken
+    !rc.expiration ||
+    !rc.secretAccessKey ||
+    !rc.sessionToken
   ) {
     throw new Error('role creds undefined:' + JSON.stringify(rc, null, 2));
   }
@@ -105,7 +105,8 @@ export async function appInstances(p: { ssoAuthn: string }) {
     )
   ).json()) as IAppInstances;
 
-  if (!ai?.result) {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (!ai.result) {
     throw new Error('appinstance error' + JSON.stringify(ai, null, 2));
   }
 
@@ -123,7 +124,7 @@ export async function getSamlAssertion(
     )
   ).json()) as IAppInstanceDetails;
 
-  const asserturl = det?.result?.[0]?.url;
+  const asserturl = det.result[0]?.url;
   if (!asserturl) {
     throw new Error('assertion url cant be found');
   }
@@ -181,6 +182,7 @@ export const tryExistingCredentials = async (): Promise<
     } catch (e) {
       //
       const em = (e as Error).toString();
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (em.includes('is expired') ?? em.includes('or invalid')) {
         info('access token or sso expired, need to wipe');
       } else {

@@ -29,7 +29,7 @@ const getUpstreamVersion = async () => {
       { headers: { Accept: 'application/json' } },
     );
     const tags = (await r.json()) as ITag[];
-    return tags?.[0]?.name;
+    return tags[0]?.name;
   } catch (e) {
     warn(`error getting upstream version:` + (e as Error).message);
     return undefined;

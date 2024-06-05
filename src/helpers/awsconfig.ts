@@ -1,15 +1,15 @@
 import { loadSharedConfigFiles } from '@aws-sdk/shared-ini-file-loader';
-//@ts-ignore
-import { getCredentialsFilepath } from '@aws-sdk/shared-ini-file-loader/dist-cjs/getCredentialsFilepath';
 import { info } from 'ag-common/dist/common/helpers/log';
 import fs from 'fs';
 import { stringify } from 'ini';
 
 import type { IAwsCreds, IAwsCredsRaw } from '../types';
+import { getCredentialsFilepath } from './getCredentialsFilepath';
 
 export const getAwsCredentials = async () => {
   const config = await loadSharedConfigFiles();
   const creds = config.credentialsFile;
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!creds.default) {
     creds.default = {};
   }

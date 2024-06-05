@@ -18,7 +18,7 @@ export async function validateCredentials(
     await appInstances(credentials);
 
     if (
-      (stub?.$metadata?.httpStatusCode ?? 500) < 400 &&
+      (stub.$metadata.httpStatusCode ?? 500) < 400 &&
       stub.Account &&
       stub.Arn
     ) {
@@ -60,9 +60,9 @@ export async function getApplicationCreds(p: {
   }
 
   if (
-    !ret?.Credentials?.AccessKeyId ||
-    !ret?.Credentials?.SecretAccessKey ||
-    !ret?.Credentials?.SessionToken
+    !ret.Credentials?.AccessKeyId ||
+    !ret.Credentials.SecretAccessKey ||
+    !ret.Credentials.SessionToken
   ) {
     throw new Error('no creds');
   }
@@ -101,9 +101,9 @@ export async function directStsAssume(p: {
   }
 
   if (
-    !ar?.Credentials?.AccessKeyId ||
-    !ar?.Credentials?.SecretAccessKey ||
-    !ar?.Credentials?.SessionToken
+    !ar.Credentials?.AccessKeyId ||
+    !ar.Credentials.SecretAccessKey ||
+    !ar.Credentials.SessionToken
   ) {
     throw new Error('no creds');
   }

@@ -32,7 +32,7 @@ export const launchBrowser = async () => {
     BrowserLaunchArgumentOptions &
     BrowserConnectOptions = {
     defaultViewport: { height: 1000, width: 500 },
-    headless: globalargs?.verbose ? false : 'new',
+    headless: globalargs?.verbose ? false : true,
 
     ignoreHTTPSErrors: true,
     devtools: false,
@@ -217,8 +217,8 @@ export async function getMFA(p: {
   });
   warn('mfa success');
 
-  const cookies = await page?.cookies();
-  const ssoAuthn = cookies?.find((c) => c.name === 'x-amz-sso_authn')?.value;
+  const cookies = await page.cookies();
+  const ssoAuthn = cookies.find((c) => c.name === 'x-amz-sso_authn')?.value;
 
   if (!ssoAuthn) {
     throw new Error('no aws authn');
