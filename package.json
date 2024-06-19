@@ -48,6 +48,9 @@
     "@types/readline-sync": "1.4.8",
     "@types/yargs": "17.0.32"
   },
+  "resolutions": {
+    "ws": ">=8.17.1"
+  },
   "engines": {
     "node": ">=18",
     "yarn": "use pnpm",
