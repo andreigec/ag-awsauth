@@ -115,8 +115,11 @@ export async function getMFA(p: {
   );
 
   await sleep(250);
-  await page.waitForNetworkIdle({ idleTime: 250 });
-  //
+  try {
+    await page.waitForNetworkIdle({ idleTime: 250, timeout: 3000 });
+  } catch (e) {
+    //
+  }
 
   try {
     info('wait optional alert message');
