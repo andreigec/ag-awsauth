@@ -192,7 +192,26 @@ export async function getMFA(p: {
     }
 
     try {
-      info('wait for access prompt');
+      info('accept-user-code');
+
+      const messageDiv = await page.waitForSelector(
+        '[data-analytics="accept-user-code"]',
+        {
+          timeout: timeoutShortMs,
+        },
+      );
+      if (messageDiv) {
+        info('click access prompt');
+        await messageDiv.click();
+      } else {
+        throw new Error('access prompt not found');
+      }
+    } catch (e) {
+      //
+    }
+
+    try {
+      info('allow-access-button');
 
       const messageDiv = await page.waitForSelector(
         '[data-testid="allow-access-button"]',
